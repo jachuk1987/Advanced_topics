@@ -12,5 +12,13 @@ export const socialMediaSlice = createSlice({
     reducers: {}
 })
 
+export const TaskManagementSystem = createSlice({
+    name: "tasks",
+    initialState: ["PendingTasks", "InProgressTask", "CompletedTask"],
+    reducers: {}
+})
+
 export const cartData = CartSlice.reducer;
 export const socialData = socialMediaSlice.reducer;
+export const taskManagementData = TaskManagementSystem.reducer;
+
