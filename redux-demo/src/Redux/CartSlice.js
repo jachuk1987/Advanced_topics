@@ -18,6 +18,12 @@ export const TaskManagementSystem = createSlice({
     reducers: {}
 })
 
+export const Quizz = createSlice({
+    name: "tasks",
+    initialState: ["PendingTasks", "InProgressTask", "CompletedTask"],
+    reducers: {}
+})
+
 export const cartData = CartSlice.reducer;
 export const socialData = socialMediaSlice.reducer;
 export const taskManagementData = TaskManagementSystem.reducer;
