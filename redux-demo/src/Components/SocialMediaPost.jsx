@@ -1,13 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-const ECommerceCart = () => {
-    const productslice = useSelector((state) => state.products);
+const SocialMediaPost = () => {
+    const posts = useSelector((state) => state.subscribes,
+    );
     return (
         <div>
-            <h2>Welcome to E-CommerceCart!</h2>
+            <h2>Welcome to SocialMediaPost!</h2>
             <ul>
-                {productslice.map((User) => {
+                {posts.map((User) => {
                     return <li>{User}</li>
                 })}
             </ul>
@@ -15,4 +16,4 @@ const ECommerceCart = () => {
     )
 }
 
-export default ECommerceCart;
+export default SocialMediaPost;
