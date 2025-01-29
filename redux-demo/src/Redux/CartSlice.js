@@ -33,8 +33,29 @@ export const UserProfileManagement = createSlice({
     reducers: {}
 })
 
+export const LibraryManagementSystem = createSlice({
+    name: "books",
+    initialState: ["Book Name", "Book Author"],
+    reducers: {}
+})
+
+export const DigitalAddressBook = createSlice({
+    name: "contacts",
+    initialState: ["Name", "Email", "Phone"],
+    reducers: {}
+})
+
+export const MovieTicketBooking = createSlice({
+    name: "seats",
+    initialState: ["Seat1", "Seat2", "Seat3"],
+    reducers: {}
+})
+
 export const cartData = CartSlice.reducer;
 export const socialData = socialMediaSlice.reducer;
 export const taskManagementData = TaskManagementSystem.reducer;
 export const quizzData = Quizz.reducer;
 export const userData = UserProfileManagement.reducer;
+export const libraryData = LibraryManagementSystem.reducer;
+export const digitalData = DigitalAddressBook.reducer;
+export const movieData = MovieTicketBooking.reducer;

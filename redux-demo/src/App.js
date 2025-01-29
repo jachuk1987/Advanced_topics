@@ -5,6 +5,9 @@ import SocialMediaPost from './Components/SocialMediaPost';
 import TaskManagementSystem from './Components/TaskManagementSystem';
 import Quizz from './Components/Quizz';
 import UserProfileManagement from './Components/UserProfileManagement';
+import LibraryManagementSystem from './Components/LibraryManagementSystem';
+import DigitalAddressBook from './Components/DigitalAddressBook';
+import MovieTicketBooking from './Components/MovieTicketBooking';
 
 function App() {
   return (
@@ -14,6 +17,9 @@ function App() {
       <TaskManagementSystem />
       <Quizz />
       <UserProfileManagement />
+      <LibraryManagementSystem />
+      <DigitalAddressBook />
+      <MovieTicketBooking />
     </div>
   );
 }
