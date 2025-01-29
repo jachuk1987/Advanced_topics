@@ -1,5 +1,5 @@
 import { configureStore} from "@reduxjs/toolkit";
-import { cartData, digitalData, libraryData, movieData, quizzData, socialData, taskManagementData, userData } from "./CartSlice";
+import { cartData, digitalData, expenseData, inventoryData, libraryData, movieData, quizzData, socialData, taskManagementData, userData } from "./CartSlice";
 
 export const Store = configureStore({
     reducer: {
@@ -11,5 +11,7 @@ export const Store = configureStore({
         books: libraryData,
         contacts: digitalData,
         seats: movieData,
+        products: inventoryData,
+        expenses: expenseData,
     }
 })

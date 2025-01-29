@@ -51,6 +51,18 @@ export const MovieTicketBooking = createSlice({
     reducers: {}
 })
 
+export const InventoryManagement = createSlice({
+    name: "products",
+    initialState: ["Product Name", "Product Quantity" ],
+    reducers: {}
+})
+
+export const ExpenseTracker = createSlice({
+    name: "expenses",
+    initialState: ["CategoryInput", "AmountInput", "ErrorElement"],
+    reducers: {}
+})
+
 export const cartData = CartSlice.reducer;
 export const socialData = socialMediaSlice.reducer;
 export const taskManagementData = TaskManagementSystem.reducer;
@@ -59,3 +71,5 @@ export const userData = UserProfileManagement.reducer;
 export const libraryData = LibraryManagementSystem.reducer;
 export const digitalData = DigitalAddressBook.reducer;
 export const movieData = MovieTicketBooking.reducer;
+export const inventoryData = InventoryManagement.reducer;
+export const expenseData = ExpenseTracker.reducer;

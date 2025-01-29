@@ -8,6 +8,8 @@ import UserProfileManagement from './Components/UserProfileManagement';
 import LibraryManagementSystem from './Components/LibraryManagementSystem';
 import DigitalAddressBook from './Components/DigitalAddressBook';
 import MovieTicketBooking from './Components/MovieTicketBooking';
+import InventoryManagement from './Components/InventoryManagement';
+import ExpenseTracker from './Components/ExpenseTracker';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
       <LibraryManagementSystem />
       <DigitalAddressBook />
       <MovieTicketBooking />
+      <InventoryManagement />
+      <ExpenseTracker />
     </div>
   );
 }
