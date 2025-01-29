@@ -27,7 +27,14 @@ export const Quizz = createSlice({
     reducers: {}
 })
 
+export const UserProfileManagement = createSlice({
+    name: "roles",
+    initialState: ["Name", "Email", "role"],
+    reducers: {}
+})
+
 export const cartData = CartSlice.reducer;
 export const socialData = socialMediaSlice.reducer;
 export const taskManagementData = TaskManagementSystem.reducer;
 export const quizzData = Quizz.reducer;
+export const userData = UserProfileManagement.reducer;

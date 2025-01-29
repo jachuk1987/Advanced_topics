@@ -4,6 +4,7 @@ import ECommerceCart from './Components/ECommerceCart';
 import SocialMediaPost from './Components/SocialMediaPost';
 import TaskManagementSystem from './Components/TaskManagementSystem';
 import Quizz from './Components/Quizz';
+import UserProfileManagement from './Components/UserProfileManagement';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <SocialMediaPost />
       <TaskManagementSystem />
       <Quizz />
+      <UserProfileManagement />
     </div>
   );
 }
