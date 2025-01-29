@@ -6,7 +6,7 @@ const UserProfileManagement = () => {
     );
     return (
         <div>
-            <h2>Welcome to Quizz!</h2>
+            <h2>Welcome to User Profile Management!</h2>
             <ul>
                 {role.map((User) => {
                     return <li>{User}</li>
