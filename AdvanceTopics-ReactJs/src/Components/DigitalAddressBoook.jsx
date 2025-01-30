@@ -29,8 +29,8 @@ const DigitalAddressBook = () => {
     });
     getAllContactsFromServer();
     setAddress({
-        contactName: "",
-    contactEmail: "",
+      contactName: "",
+      contactEmail: "",
     })
 
   };
@@ -52,28 +52,28 @@ const DigitalAddressBook = () => {
     setisEdit(true);
   };
 
-  const updateContactInServer = async() => {
-    const response = await fetch("http://localhost:3000/contacts/"+address.id,{
-        method:"PUT",
-        body:JSON.stringify(address),
-        headers: { "Content-Type": "application/json" },
+  const updateContactInServer = async () => {
+    const response = await fetch("http://localhost:3000/contacts/" + address.id, {
+      method: "PUT",
+      body: JSON.stringify(address),
+      headers: { "Content-Type": "application/json" },
     })
     setisEdit(false)
     setAddress({
-        contactName: "",
-    contactEmail: "",
+      contactName: "",
+      contactEmail: "",
     })
     getAllContactsFromServer()
   };
 
-  const getSearchResults=(e)=>{
+  const getSearchResults = (e) => {
     console.log(e.target.value)
-    const filteredContacts = allContacts.filter((contact)=>{
-       return contact.contactName.toLowerCase().indexOf(e.target.value.toLowerCase()) > -1 || contact.contactEmail.indexOf(e.target.value) > -1
+    const filteredContacts = allContacts.filter((contact) => {
+      return contact.contactName.toLowerCase().indexOf(e.target.value.toLowerCase()) > -1 || contact.contactEmail.indexOf(e.target.value) > -1
     })
     setAllContacts(filteredContacts)
-    if(e.target.value == ""){
-        getAllContactsFromServer()
+    if (e.target.value == "") {
+      getAllContactsFromServer()
     }
   }
   return (
