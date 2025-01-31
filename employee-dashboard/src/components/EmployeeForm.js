@@ -17,7 +17,7 @@ const EmployeeForm = ({ visible, onCancel, onSubmit, employee }) => {
           </Select>
         </Form.Item>
         <Form.Item name="role" label="Role">
-          <Input />
+          <Input /> 
         </Form.Item>
         <Form.Item name="salary" label="Salary">
           <Input type="number" />
