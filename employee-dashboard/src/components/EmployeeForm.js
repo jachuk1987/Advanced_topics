@@ -32,6 +32,7 @@ const EmployeeForm = ({ visible, onCancel, onSubmit, employee }) => {
       </Form>
     </Modal>
   );
+  
 };
 
 export default EmployeeForm;
