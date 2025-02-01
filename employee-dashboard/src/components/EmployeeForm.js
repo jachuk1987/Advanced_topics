@@ -10,6 +10,7 @@ const EmployeeForm = ({ visible, onCancel, onSubmit, employee }) => {
         <Form.Item name="name" label="Name" rules={[{ required: true, message: "Enter name" }]}>
           <Input />
         </Form.Item>
+        
         <Form.Item name="department" label="Department">
           <Select>
             <Option value="HR">HR</Option>
@@ -32,7 +33,7 @@ const EmployeeForm = ({ visible, onCancel, onSubmit, employee }) => {
       </Form>
     </Modal>
   );
-  
+
 };
 
 export default EmployeeForm;
