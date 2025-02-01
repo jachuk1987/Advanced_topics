@@ -17,10 +17,11 @@ const EmployeeForm = ({ visible, onCancel, onSubmit, employee }) => {
             <Option value="IT">IT</Option>
           </Select>
         </Form.Item>
-        
+
         <Form.Item name="role" label="Role">
           <Input /> 
         </Form.Item>
+        
         <Form.Item name="salary" label="Salary">
           <Input type="number" />
         </Form.Item>
