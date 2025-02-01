@@ -10,13 +10,14 @@ const EmployeeForm = ({ visible, onCancel, onSubmit, employee }) => {
         <Form.Item name="name" label="Name" rules={[{ required: true, message: "Enter name" }]}>
           <Input />
         </Form.Item>
-        
+
         <Form.Item name="department" label="Department">
           <Select>
             <Option value="HR">HR</Option>
             <Option value="IT">IT</Option>
           </Select>
         </Form.Item>
+        
         <Form.Item name="role" label="Role">
           <Input /> 
         </Form.Item>
