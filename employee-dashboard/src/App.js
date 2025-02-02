@@ -8,6 +8,6 @@ function App() {
       <Dashboard />
     </div>
   );
-}
+};
 
 export default App;
