@@ -13,7 +13,8 @@ const EmployeeTable = ({ employees, onEdit, onDelete }) => {
     { headerName: "Role", field: "role" },
     { headerName: "Salary", field: "salary", sortable: true },
     { headerName: "Status", field: "status" },
-    { headerName: "Actions",
+    { 
+      headerName: "Actions",
       field: "actions",
       cellRendererFramework: (params) => (
         <>
