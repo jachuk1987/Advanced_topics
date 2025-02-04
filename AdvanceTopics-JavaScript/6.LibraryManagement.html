@@ -66,6 +66,14 @@
     };
 
     const lendingTracker = createLendingTracker();
+
+    const fetchBooks = async () => {
+      try {
+        const response = await fetch(
+          "https://openlibrary.org/subjects/science.json?limit=5"
+          );
+      }
+    }
   </script>
 </body>
 
