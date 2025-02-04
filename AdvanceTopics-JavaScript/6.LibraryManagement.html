@@ -91,7 +91,25 @@
     document.getElementById("add-book-btn").addEventListener("click", () => {
       const title = document.getElementById("book-title").value;
       const author = document.getElementById("author").value;
-    })
+
+      if (!title || !author) {
+        alert("Please enter both title and author!");
+        return;
+      }
+
+      const newBook = createBook({
+        id: Date.now().toString(),
+        title,
+        author,
+        status: "Available",
+      });
+
+      library.push(newBook);
+      renderBooks();
+
+      document.getElementById("book-title").value = "";
+      document.getElementById("author").value = "";
+    });
   </script>
 </body>
 
