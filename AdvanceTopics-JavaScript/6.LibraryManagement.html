@@ -74,8 +74,19 @@
           );
           if (!response.ok) throw new Error("Failed to fetch books");
           const data = await response.json();
+
+          library = data.works.map((book) =>
+          createBook({
+            id: book.key,
+            title: book.authors?.[0]?.name || "Unknown",
+            status: "Available",
+          })
+        );
+        renderBooks();
+      } catch (error) {
+        console.error("Error fetching books:", error);
       }
-    }
+    };
   </script>
 </body>
 
