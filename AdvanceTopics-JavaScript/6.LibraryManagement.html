@@ -87,6 +87,11 @@
         console.error("Error fetching books:", error);
       }
     };
+
+    document.getElementById("add-book-btn").addEventListener("click", () => {
+      const title = document.getElementById("book-title").value;
+      const author = document.getElementById("author").value;
+    })
   </script>
 </body>
 
