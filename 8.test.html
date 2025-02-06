@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking System</title>
+    <script defer src="app.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="bg-gray-100 font-sans">
+        <div class="container mx-auto p-6">
+            <h1 class="text-3xl font-bold text-center mb-6">Movie Ticket Booking System</h1>
+
+            <!-- Search Movies Section -->
+            <div class="mb-6">
+                <input id="movie-search" type="text" placeholder="Search movies..."
+                    class="w-full p-4 border rounded-lg focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Theater Layout Section -->
+            <div id="theater-layout" class="bg-white shadow-lg rounded-lg p-4">
+                <h2 class="text-xl font-semibold mb-4">Theater Layout</h2>
+
+                <!-- Legend -->
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex items-center">
+                        <div class="w-6 h-6 bg-green-500 rounded-full mr-2"></div> Available
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-6 h-6 bg-red-500 rounded-full mr-2"></div> Booked
+                    </div>
+                </div>
+
+                <!-- Seats -->
+                <div id="seats" class="grid grid-cols-10 gap-2"></div>
+
+                <div class="mt-4 text-center">
+                    <button id="confirm-booking" class="bg-green-500 text-white px-4 py-2 rounded">Confirm
+                        Booking</button>
+                    <button id="cancel-booking" class="bg-red-500 text-white px-4 py-2 rounded">Cancel Booking</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Seat booking logic using closures
+        const createTheater = (rows, cols) => {
+            const seats = Array.from({ length: rows }, () =>
+                Array.from({ length: cols }, () => ({ booked: false }))
+            );
+
+            return {
+                bookSeat: (row, col) => {
+                    if (!seats[row][col].booked) {
+                        seats[row][col].booked = true;
+                        return true;
+                    }
+                    return false;
+                },
+                cancelSeat: (row, col) => {
+                    if (seats[row][col].booked) {
+                        seats[row][col].booked = false;
+                        return true;
+                    }
+                    return false;
+                },
+                getSeats: () => seats,
+            };
+        };
+
+        const theater = createTheater(5, 10);
+
+        // Render seats dynamically
+        const renderSeats = () => {
+            const seatsContainer = document.getElementById("seats");
+            seatsContainer.innerHTML = "";
+
+            theater.getSeats().forEach((row, rowIndex) => {
+                row.forEach((seat, colIndex) => {
+                    const seatButton = document.createElement("button");
+                    seatButton.className = `p-2 rounded ${seat.booked ? "bg-red-500" : "bg-green-500"
+                        }`;
+                    seatButton.textContent = `${rowIndex + 1}-${colIndex + 1}`;
+                    seatButton.title = seat.booked ? "Booked" : "Available";
+                    seatButton.addEventListener("click", () =>
+                        toggleSeat(rowIndex, colIndex)
+                    );
+                    seatsContainer.appendChild(seatButton);
+                });
+            });
+        };
+
+        // Toggle seat booking
+        const toggleSeat = (row, col) => {
+            const seat = theater.getSeats()[row][col];
+            if (seat.booked) {
+                theater.cancelSeat(row, col);
+            } else {
+                theater.bookSeat(row, col);
+            }
+            renderSeats();
+        };
+
+        // Confirm booking
+        document
+            .getElementById("confirm-booking")
+            .addEventListener("click", async () => {
+                alert("Booking confirmed!");
+            });
+
+        // Cancel all bookings
+        document.getElementById("cancel-booking").addEventListener("click", () => {
+            theater
+                .getSeats()
+                .forEach((row, rowIndex) =>
+                    row.forEach((_, colIndex) => theater.cancelSeat(rowIndex, colIndex))
+                );
+            renderSeats();
+        });
+
+        // Initialize
+        document.addEventListener("DOMContentLoaded", renderSeats);
+    </script>
+</body>
+
+</html>
