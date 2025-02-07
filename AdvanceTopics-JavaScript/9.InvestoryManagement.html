@@ -35,48 +35,40 @@
         // Inventory data
         let inventory = [];
 
-        // Fetch inventory data from server
+        // Fetch inventory data from the server (if available)
         const fetchInventory = async () => {
             try {
                 const response = await fetch("http://localhost:3000/inventory");
                 if (!response.ok) throw new Error("Failed to fetch inventory");
                 const data = await response.json();
-                console.log(data)
+                console.log("Fetched Inventory:", data);
+
                 inventory = data.map((product) => ({
                     id: product.id,
                     name: product.name,
                     quantity: product.quantity,
                 }));
+
+                saveToLocalStorage();
                 renderInventory();
             } catch (error) {
-                console.error("Error fetching inventory:", error);
+                console.warn("Server not found. Using local storage instead.");
+                loadFromLocalStorage();
+                renderInventory();
             }
         };
 
         // Add product to inventory
         document.getElementById("add-product-btn").addEventListener("click", () => {
-            const name = document.getElementById("product-name").value;
-            const quantity = parseInt(
-                document.getElementById("product-quantity").value,
-                10
-            );
+            const name = document.getElementById("product-name").value.trim();
+            const quantity = parseInt(document.getElementById("product-quantity").value, 10);
 
-            if (!name || isNaN(quantity)) {
-                alert("Please provide valid product details!");
+            if (!name || isNaN(quantity) || quantity < 0) {
+                alert("Please enter a valid product name and non-negative quantity.");
                 return;
             }
 
-            if (quantity < 0) {
-                alert("Stock quantity cannot be negative!");
-                return;
-            }
-
-            const newProduct = {
-                id: Date.now(),
-                name,
-                quantity,
-            };
-
+            const newProduct = { id: Date.now(), name, quantity };
             inventory.push(newProduct);
             saveToLocalStorage();
             renderInventory();
@@ -102,10 +94,14 @@
             const productsContainer = document.getElementById("products");
             productsContainer.innerHTML = "";
 
+            if (inventory.length === 0) {
+                productsContainer.innerHTML = `<p class="text-gray-500 text-center">No products in inventory.</p>`;
+                return;
+            }
+
             inventory.forEach((product) => {
                 const productElement = document.createElement("div");
-                productElement.className =
-                    "p-4 border rounded flex justify-between items-center";
+                productElement.className = "p-4 border rounded flex justify-between items-center";
 
                 productElement.innerHTML = `
                 <div>
@@ -129,19 +125,21 @@
         // Update product quantity
         const updateProduct = (id, action) => {
             const product = inventory.find((p) => p.id === id);
-            if (product) {
-                if (action === "increase") {
-                    product.quantity++;
-                } else if (action === "decrease") {
-                    if (product.quantity > 0) {
-                        product.quantity--;
-                    } else {
-                        alert("Stock quantity cannot be negative!");
-                    }
+            if (!product) return;
+
+            if (action === "increase") {
+                product.quantity++;
+            } else if (action === "decrease") {
+                if (product.quantity > 0) {
+                    product.quantity--;
+                } else {
+                    alert("Stock quantity cannot be negative!");
+                    return;
                 }
-                saveToLocalStorage();
-                renderInventory();
             }
+
+            saveToLocalStorage();
+            renderInventory();
         };
 
         // Remove product
@@ -152,8 +150,11 @@
         };
 
         // Initialize application
-        document.addEventListener("DOMContentLoaded",loadFromLocalStorage)
-           
+        document.addEventListener("DOMContentLoaded", async () => {
+            await fetchInventory();
+            renderInventory();
+        });
+
     </script>
 </body>
 

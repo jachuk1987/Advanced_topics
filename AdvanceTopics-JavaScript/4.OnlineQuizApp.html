@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Quiz App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="bg-gray-100 font-sans">
+        <div class="container mx-auto p-6">
+            <h1 class="text-3xl font-bold text-center mb-6">Online Quiz App</h1>
+        
+            <!-- Quiz Area -->
+            <div id="quiz-container" class="max-w-xl mx-auto bg-white shadow-lg rounded-lg p-6">
+              <div id="question" class="text-lg font-semibold mb-4"></div>
+              <div id="answers" class="space-y-2"></div>
+              <button id="next-btn" class="bg-blue-500 text-white px-4 py-2 rounded mt-4 hidden">Next</button>
+            </div>
+        
+            <!-- Timer -->
+            <div id="timer" class="text-center text-lg font-semibold mt-6"></div>
+          </div>
+    </div>
+  
+    <script>
+        // Fetch Questions from API
+        const fetchQuestions = async () => {
+          try {
+            const response = await fetch("https://opentdb.com/api.php?amount=5&category=9&type=multiple");
+            if (!response.ok) throw new Error("Failed to fetch questions");
+            const data = await response.json();
+            return data.results;
+          } catch (error) {
+            console.error("Problem fetching questions:", error);
+          }
+        };
+
+        // Timer Function
+        const createTimer = (duration, onTick, onEnd) => {
+          let timeRemaining = duration;
+          const intervalId = setInterval(() => {
+            if (timeRemaining > 0) {
+              onTick(timeRemaining);
+              timeRemaining--;
+            } else {
+              clearInterval(intervalId);
+              onEnd();
+            }
+          }, 1000);
+          return () => clearInterval(intervalId);
+        };
+
+        let currentIndex = 0;
+        const correctAnswers = [];
+        const userAnswers = [];
+        let stopTimer;
+
+        // Render Quiz Questions
+        const renderQuiz = (questions) => {
+          if (currentIndex >= questions.length) {
+            document.getElementById("quiz-container").innerHTML = `
+              <div class='text-center font-bold text-xl'>Quiz Completed!</div>
+            `;
+            calculateScore(userAnswers, correctAnswers);
+            return;
+          }
+
+          const question = questions[currentIndex];
+          document.getElementById("question").innerHTML = question.question;
+          correctAnswers.push(question.correct_answer);
+
+          // Shuffle answers
+          const answers = [...question.incorrect_answers, question.correct_answer].sort(() => Math.random() - 0.5);
+
+          const answersContainer = document.getElementById("answers");
+          answersContainer.innerHTML = answers
+            .map(
+              (answer) =>
+                `<button class="w-full bg-gray-200 hover:bg-gray-300 p-2 rounded" onclick="selectAnswer('${answer}')">${answer}</button>`
+            )
+            .join("");
+
+          document.getElementById("next-btn").classList.add("hidden");
+
+          // Start Timer
+          stopTimer = createTimer(
+            15,
+            (time) => {
+              document.getElementById("timer").innerHTML = `Time remaining: ${time} seconds`;
+            },
+            () => {
+              userAnswers.push(null);
+              moveToNextQuestion(questions);
+            }
+          );
+        };
+
+        // Handle Answer Selection
+        const selectAnswer = (answer) => {
+          userAnswers[currentIndex] = answer;
+          document.getElementById("next-btn").classList.remove("hidden");
+          stopTimer();
+        };
+
+        // Move to Next Question
+        const moveToNextQuestion = (questions) => {
+          currentIndex++;
+          renderQuiz(questions);
+        };
+
+        // Calculate and Display Score
+        const calculateScore = (answers, correctAnswers) => {
+          const score = answers.reduce((acc, answer, index) => {
+            return acc + (answer === correctAnswers[index] ? 1 : 0);
+          }, 0);
+          document.getElementById("quiz-container").innerHTML = `
+            <div class='text-center text-2xl font-bold'>Your Score: ${score} / ${correctAnswers.length}</div>
+          `;
+        };
+
+        // Initialize Quiz
+        document.addEventListener("DOMContentLoaded", async () => {
+          const questions = await fetchQuestions();
+          renderQuiz(questions);
+          document.getElementById("next-btn").addEventListener("click", () => moveToNextQuestion(questions));
+        });
+    </script>
+</body>
+
+</html>
