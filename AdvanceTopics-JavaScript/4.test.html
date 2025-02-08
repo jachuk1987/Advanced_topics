@@ -49,6 +49,25 @@
             const question = questions[currentIndex];
             document.getElementById("question").innerHTML = question.question;
             correctAnswers.push(question.correct_answer);
+
+            const answers = [...question.incorrect_answers, question.correct_answer].sort(() => Math.random() - 0.5);
+
+            const answersContainer = document.getElementById("answers");
+            answersContainer.innerHTML = answers
+                .map(
+                    (answer) =>
+                    `<button class="w-full bg-gray-200 hover:bg-gray-300 p-2 rounded" onclick="selectAnswer('${answer}')">${answer}</button>`
+                )
+                .join("");
+
+            document.getElementById("next-btn").classList.add("hidden");
+
+            stopTimer = createTimer(
+                15,
+                (time) => {
+                    document.getElementById("timer").innerHTML
+                }
+            )
         }
 
 
