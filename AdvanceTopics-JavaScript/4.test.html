@@ -65,10 +65,33 @@
             stopTimer = createTimer(
                 15,
                 (time) => {
-                    document.getElementById("timer").innerHTML
+                    document.getElementById("timer").innerHTML = `Time remaining: ${time} seconds`;
+                },
+                () => {
+                    useAnswers.push(null);
+                    moveToNextQuestion(questions);
                 }
-            )
-        }
+            );
+        };
+
+        const createTimer = (duration, onTick, onEnd) => {
+            let timeRemaining = duration;
+            const intervalId = setInterval(() => {
+                if (timeRemaining > 0) {
+                    onTick(timeRemaining);
+                    timeRemaining--;
+                } else {
+                    clearInterval(intervalId);
+                    onEnd();
+                }
+            }, 1000);
+            return () => clearInterval(intervalId);
+        };
+
+        let currentIndex = 0;
+        const correctAnswers = [];
+        const userAnswers = [];
+        let stopTimer;
 
 
         document.addEventListener("DOMContentLoaded", async () => {
