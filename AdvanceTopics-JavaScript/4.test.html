@@ -42,7 +42,7 @@
                 document.getElementById("quiz-container").innerHTML = `
                     <div class='text-center font-bold text-xl'>Quiz Completed!</div>
                 `;
-                calculateScore(useAnswers, correctAnswers);
+                calculateScore(userAnswers, correctAnswers);
                 return;
             }
 
@@ -92,6 +92,26 @@
         const correctAnswers = [];
         const userAnswers = [];
         let stopTimer;
+
+        const selectAnswer = (answer) => {
+            userAnswers[currentIndex] = answer;
+            document.getElementById("next-btn").classList.remove("hidden");
+            stopTimer();
+        };
+
+        const moveToNextQuestion = (questions) => {
+            currentIndex++;
+            renderQuiz(questions);
+        };
+
+        const calculateScore = (answers, correctAnswers) => {
+            const score = answers.reduce((acc, answer, index) => {
+                return acc + (answer === correctAnswers[index] ? 1 : 0)
+            }, 0);
+            document.getElementById("quiz-container").innerHTML = `
+            <div class='text-center text-2x1 font-bold'>Your Score: ${score} / ${correctAnswers.length}</div>
+            `
+        }
 
 
         document.addEventListener("DOMContentLoaded", async () => {
