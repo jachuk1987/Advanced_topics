@@ -74,5 +74,27 @@
             "name": "Printer",
             "quantity": 15
         }
+    ],
+    "addressBook": [
+        {
+            "name": "Jeswanth",
+            "email": "jeswanth@gmail.com"
+        },
+        {
+            "name": "Vishal",
+            "email": "vishal@gmail.com"
+        },
+        {
+            "name": "Sekhar",
+            "email": "sekhar@gmail.com"
+        },
+        {
+            "name": "Nethaji",
+            "email": "nethaji@gmail.com"
+        },
+        {
+            "name": "Sam",
+            "email": "sam@gmail.com"
+        }
     ]
 }
