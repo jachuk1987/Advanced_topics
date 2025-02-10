@@ -1,7 +1,7 @@
 
-import Auth from './pages/auth'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
+import Auth from './pages/auth';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import TaskList from './pages/TaskList'
 const App = () => {
   return <>
