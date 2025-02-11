@@ -1,30 +1,32 @@
 import React, { useState } from "react";
-import { TextField, Button, Container, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/reducers/authReducer";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const handleChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login({ email, password }));
+    dispatch(login(credentials));
     navigate("/tasks");
   };
 
   return (
-    <Container>
-      <Typography variant="h4">Login</Typography>
+    <div className="container">
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <TextField fullWidth label="Email" value={email} onChange={(e) => setEmail(e.target.value)} margin="normal" required />
-        <TextField fullWidth label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} margin="normal" required />
-        <Button type="submit" variant="contained" color="primary">Login</Button>
+        <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
+        <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
+        <button type="submit">Login</button>
       </form>
-    </Container>
+    </div>
   );
 };
 
