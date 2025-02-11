@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/reducers/authReducer";
 import { useNavigate } from "react-router-dom";
+import "./Login.css"
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
