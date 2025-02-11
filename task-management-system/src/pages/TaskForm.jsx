@@ -1,47 +1,37 @@
-import React from "react";
-import { TextField, Button, Container, Typography } from "@mui/material";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { useDispatch } from "react-redux";
-import { addTask, updateTask } from "../redux/taskSlice";
-import { useNavigate, useLocation } from "react-router-dom";
-
-// Validation Schema
-const schema = yup.object().shape({
-  title: yup.string().required("Title is required"),
-  description: yup.string().required("Description is required"),
-  dueDate: yup.date().required("Due date is required").typeError("Invalid date format"),
-});
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addTask, updateTask } from "../redux/reducers/taskReducer";
+import { useNavigate, useParams } from "react-router-dom";
+import { TextField, Button, Container } from "@mui/material";
 
 const TaskForm = () => {
+  const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
-  const task = location.state?.task || {};
+  const existingTask = useSelector((state) => state.tasks.tasks.find(task => task.id === id)) || {};
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
-    resolver: yupResolver(schema),
-    defaultValues: task,
-  });
+  const [title, setTitle] = useState(existingTask.title || "");
+  const [description, setDescription] = useState(existingTask.description || "");
+  const [dueDate, setDueDate] = useState(existingTask.dueDate || "");
 
-  const onSubmit = (data) => {
-    if (task.id) {
-      dispatch(updateTask({ ...task, ...data }));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (id) {
+      dispatch(updateTask({ id, title, description, dueDate }));
     } else {
-      dispatch(addTask({ id: Date.now(), ...data }));
+      dispatch(addTask({ title, description, dueDate }));
     }
     navigate("/tasks");
   };
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h5">{task.id ? "Edit Task" : "Create Task"}</Typography>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <TextField fullWidth label="Title" {...register("title")} error={!!errors.title} helperText={errors.title?.message} margin="normal" />
-        <TextField fullWidth label="Description" multiline rows={3} {...register("description")} error={!!errors.description} helperText={errors.description?.message} margin="normal" />
-        <TextField fullWidth type="date" {...register("dueDate")} error={!!errors.dueDate} helperText={errors.dueDate?.message} margin="normal" InputLabelProps={{ shrink: true }} />
-        <Button type="submit" variant="contained" color="primary" fullWidth>{task.id ? "Update Task" : "Create Task"}</Button>
+    <Container>
+      <h2>{id ? "Edit Task" : "Add Task"}</h2>
+      <form onSubmit={handleSubmit}>
+        <TextField fullWidth label="Title" value={title} onChange={(e) => setTitle(e.target.value)} required margin="normal" />
+        <TextField fullWidth label="Description" value={description} onChange={(e) => setDescription(e.target.value)} required margin="normal" />
+        <TextField fullWidth label="Due Date" type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} required margin="normal" InputLabelProps={{ shrink: true }} />
+        <Button type="submit" variant="contained" color="primary">{id ? "Update" : "Add"} Task</Button>
       </form>
     </Container>
   );

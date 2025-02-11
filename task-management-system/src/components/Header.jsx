@@ -1,35 +1,28 @@
 import React from "react";
-import { AppBar, Toolbar, Button, Typography } from "@mui/material";
-import { NavLink, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { logout } from "../redux/authSlice"; // Import logout action
+import { AppBar, Toolbar, Button } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/reducers/authReducer";
 
 const Header = () => {
-  const navigate = useNavigate();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  // Handle logout functionality
   const handleLogout = () => {
-    dispatch(logout()); // Clear user from Redux store
-    localStorage.removeItem("user"); // Remove user data from local storage
-    navigate("/login"); // Redirect to login page
+    dispatch(logout());
+    navigate("/login");
   };
 
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          Task Manager
-        </Typography>
-        <Button color="inherit" component={NavLink} to="/" exact>
-          Home
-        </Button>
-        <Button color="inherit" component={NavLink} to="/tasks">
-          Tasks
-        </Button>
-        <Button color="inherit" onClick={handleLogout}>
-          Logout
-        </Button>
+        <Button color="inherit" component={Link} to="/tasks">Tasks</Button>
+        {isAuthenticated ? (
+          <Button color="inherit" onClick={handleLogout}>Logout</Button>
+        ) : (
+          <Button color="inherit" component={Link} to="/login">Login</Button>
+        )}
       </Toolbar>
     </AppBar>
   );

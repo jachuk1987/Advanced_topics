@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Load tasks from localStorage
-const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+const initialState = {
+  tasks: JSON.parse(localStorage.getItem("tasks")) || [],
+};
 
 const taskSlice = createSlice({
   name: "tasks",
-  initialState: { tasks: storedTasks },
+  initialState,
   reducers: {
     addTask: (state, action) => {
-      state.tasks.push(action.payload);
+      const newTask = { id: Date.now().toString(), ...action.payload };
+      state.tasks.push(newTask);
       localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     updateTask: (state, action) => {

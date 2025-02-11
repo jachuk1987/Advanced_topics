@@ -1,73 +1,29 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import React, { useState } from "react";
+import { TextField, Button, Container, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { signup } from "../redux/authSlice";
+import { signup } from "../redux/reducers/authReducer";
 import { useNavigate } from "react-router-dom";
-import { TextField, Button, Typography, Container, Box } from "@mui/material";
-
-// ✅ Validation Schema
-const schema = yup.object().shape({
-  username: yup.string().required("Username is required"),
-  email: yup.string().email("Invalid email").required("Email is required"),
-  password: yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
-});
 
 const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
 
-  const onSubmit = (data) => {
-    dispatch(signup(data));
-    navigate("/login");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(signup({ email, password }));
+    navigate("/tasks");
   };
 
   return (
-    <Container maxWidth="xs">
-      <Box sx={{ textAlign: "center", mt: 5 }}>
-        <Typography variant="h4">Sign Up</Typography>
-      </Box>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <TextField
-          label="Username"
-          fullWidth
-          {...register("username")}
-          error={!!errors.username}
-          helperText={errors.username?.message}
-          margin="normal"
-        />
-        <TextField
-          label="Email"
-          fullWidth
-          {...register("email")}
-          error={!!errors.email}
-          helperText={errors.email?.message}
-          margin="normal"
-        />
-        <TextField
-          label="Password"
-          type="password"
-          fullWidth
-          {...register("password")}
-          error={!!errors.password}
-          helperText={errors.password?.message}
-          margin="normal"
-        />
-        <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
-          Sign Up
-        </Button>
+    <Container>
+      <Typography variant="h4">Sign Up</Typography>
+      <form onSubmit={handleSubmit}>
+        <TextField fullWidth label="Email" value={email} onChange={(e) => setEmail(e.target.value)} margin="normal" required />
+        <TextField fullWidth label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} margin="normal" required />
+        <Button type="submit" variant="contained" color="primary">Sign Up</Button>
       </form>
-      <Typography sx={{ mt: 2, textAlign: "center" }}>
-        Already have an account? <a href="/login">Login</a>
-      </Typography>
     </Container>
   );
 };

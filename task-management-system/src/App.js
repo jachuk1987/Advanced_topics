@@ -1,41 +1,37 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { Provider } from "react-redux";
-import { CssBaseline } from "@mui/material";
 import store from "./redux/store";
-import PrivateRoute from "./components/PrivateRoute";
-import Header from "./components/Header";
+import { useSelector } from "react-redux";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import TaskList from "./pages/TaskList";
-import TaskForm from "./pages/TaskForm";
 import TaskDetails from "./pages/TaskDetails";
+import TaskForm from "./pages/TaskForm";
+import Header from "./components/Header";
+import "./App.css";
 
-const App = () => {
+const PrivateRoute = ({ element }) => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  return isAuthenticated ? element : <Navigate to="/login" />;
+};
+
+function App() {
   return (
     <Provider store={store}>
       <Router>
-        <CssBaseline />
         <Header />
         <Routes>
-          {/* Public Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-
-          {/* Protected Routes */}
-          <Route element={<PrivateRoute />}>
-            <Route path="/tasks" element={<TaskList />} />
-            <Route path="/tasks/new" element={<TaskForm />} />
-            <Route path="/tasks/edit/:id" element={<TaskForm />} />
-            <Route path="/tasks/:id" element={<TaskDetails />} />
-          </Route>
-
-          {/* Default Redirect */}
-          <Route path="*" element={<Login />} />
+          <Route path="/tasks" element={<PrivateRoute element={<TaskList />} />} />
+          <Route path="/task/:id" element={<PrivateRoute element={<TaskDetails />} />} />
+          <Route path="/task-form/:id?" element={<PrivateRoute element={<TaskForm />} />} />
+          <Route path="*" element={<Navigate to="/tasks" />} />
         </Routes>
       </Router>
     </Provider>
   );
-};
+}
 
 export default App;
