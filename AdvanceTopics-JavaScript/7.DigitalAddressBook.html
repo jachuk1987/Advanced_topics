@@ -1,146 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Address Book</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Book</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-100">
+  <div class="max-w-4xl mx-auto py-8">
+    <h1 class="text-3xl font-bold mb-4">Digital Book Contacts</h1>
 
-<body>
-    <div class="bg-gray-100 font-sans">
-        <div class="container mx-auto p-6">
-            <h1 class="text-3xl font-bold text-center mb-6">Digital Address Book</h1>
+    <form id="contactForm" class="mb-6">
+      <input id="name" type="text" placeholder="Enter Name" required class="border p-2 rounded mb-2 w-full" />
+      <input id="email" type="email" placeholder="Enter Email" required class="border p-2 rounded mb-2 w-full" />
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Contact</button>
+    </form>
 
-            <!-- Add Contact Section -->
-            <div class="mb-6">
-                <input id="contact-name" type="text" placeholder="Name" class="w-full p-4 border rounded-lg focus:ring-2 focus:ring-blue-500 mb-2">
-                <input id="contact-email" type="email" placeholder="Email" class="w-full p-4 border rounded-lg focus:ring-2 focus:ring-blue-500 mb-2">
-                <button id="add-contact-btn" class="bg-blue-500 text-white px-4 py-2 rounded">Add Contact</button>
-            </div>
+    <table class="min-w-full bg-white border">
+      <thead>
+        <tr>
+          <th class="py-2 px-4 border">ID</th>
+          <th class="py-2 px-4 border">Name</th>
+          <th class="py-2 px-4 border">Email</th>
+          <th class="py-2 px-4 border">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="contactList"></tbody>
+    </table>
+  </div>
 
-            <!-- Search Section -->
-            <div class="mb-6">
-                <input id="search" type="text" placeholder="Search contacts..." class="w-full p-4 border rounded-lg focus:ring-2 focus:ring-blue-500">
-            </div>
+  <script>
+    const apiUrl = "http://localhost:3000/addressBook1";
+    const contactForm = document.getElementById("contactForm");
+    const contactList = document.getElementById("contactList");
 
-            <!-- Contacts List -->
-            <div id="contacts-list" class="bg-white shadow-lg rounded-lg p-4">
-                <h2 class="text-xl font-semibold mb-4">Contacts</h2>
-                <div id="contacts" class="space-y-4"></div>
-            </div>
-            
-            <!-- Bulk Update Button -->
-            <button id="bulk-update-btn" class="bg-green-500 text-white px-4 py-2 rounded mt-4">Bulk Update Emails</button>
-        </div>
-    </div>
+    window.addEventListener("load", fetchContacts);
 
-    <script>
-        let contacts = [];
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
 
-        const fetchContacts = async () => {
-            try {
-                const response = await fetch("http://localhost:3000/addressBook");
-                if (!response.ok) throw new Error("Failed to fetch contacts");
-                const data = await response.json();
-                contacts = data.map(contact => ({
-                    id: contact.id,
-                    name: contact.name,
-                    email: contact.email,
-                }));
-                renderContacts();
-            } catch (error) {
-                console.error("Error fetching contacts:", error);
-            }
-        };
+      if (!name || !email) {
+        alert("Please provide both name and email.");
+        return;
+      }
 
-        document.getElementById("add-contact-btn").addEventListener("click", () => {
-            const name = document.getElementById("contact-name").value;
-            const email = document.getElementById("contact-email").value;
-
-            if (!name || !email) {
-                alert("Both name and email are required!");
-                return;
-            }
-
-            const newContact = {
-                id: Date.now(),
-                name,
-                email,
-            };
-
-            contacts.push(newContact);
-            renderContacts();
-            document.getElementById("contact-name").value = "";
-            document.getElementById("contact-email").value = "";
+      try {
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email }),
         });
 
-        const renderContacts = (filteredContacts = contacts) => {
-            const contactsContainer = document.getElementById("contacts");
-            contactsContainer.innerHTML = "";
-
-            filteredContacts.forEach(contact => {
-                const contactElement = document.createElement("div");
-                contactElement.className = "p-4 border rounded flex justify-between items-center";
-                contactElement.innerHTML = `
-                    <div>
-                        <p><strong>Name:</strong> ${contact.name}</p>
-                        <p><strong>Email:</strong> ${contact.email}</p>
-                    </div>
-                    <div>
-                        <button class="bg-yellow-500 text-white px-2 py-1 rounded mb-2" onclick="editContact(${contact.id})">Edit</button>
-                        <button class="bg-red-500 text-white px-2 py-1 rounded" onclick="deleteContact(${contact.id})">Delete</button>
-                    </div>
-                `;
-                contactsContainer.appendChild(contactElement);
-            });
-        };
-
-        const editContact = (id) => {
-            const contact = contacts.find(c => c.id === id);
-            if (contact) {
-                const newName = prompt("Enter new name:", contact.name);
-                const newEmail = prompt("Enter new email:", contact.email);
-                if (newName) contact.name = newName;
-                if (newEmail) contact.email = newEmail;
-                renderContacts();
-            }
-        };
-
-        const deleteContact = (id) => {
-            contacts = contacts.filter(c => c.id !== id);
-            renderContacts();
-        };
-
-        document.getElementById("search").addEventListener("input", (event) => {
-            const searchTerm = event.target.value.toLowerCase();
-            const regex = new RegExp(searchTerm, "i");
-            const filteredContacts = contacts.filter(contact => regex.test(contact.name) || regex.test(contact.email));
-            renderContacts(filteredContacts);
-        });
-
-        if (window.Worker) {
-            const bulkUpdateWorker = new Worker(URL.createObjectURL(new Blob([`
-                onmessage = function(e) {
-                    const updatedContacts = e.data.map(contact => ({
-                        ...contact,
-                        email: contact.email.replace('@example.com', '@updated.com')
-                    }));
-                    postMessage(updatedContacts);
-                };`], { type: "application/javascript" })));
-
-            document.getElementById("bulk-update-btn").addEventListener("click", () => {
-                bulkUpdateWorker.postMessage(contacts);
-                bulkUpdateWorker.onmessage = (event) => {
-                    contacts = event.data;
-                    renderContacts();
-                };
-            });
+        if (response.ok) {
+          alert("Contact added successfully!");
+          fetchContacts();
+          contactForm.reset();
+        } else {
+          alert("Error adding contact.");
         }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    });
 
-        document.addEventListener("DOMContentLoaded", fetchContacts);
-    </script>
+    async function fetchContacts() {
+      try {
+        const response = await fetch(apiUrl);
+        const contacts = await response.json();
+        renderContacts(contacts);
+      } catch (error) {
+        console.error("Error fetching contacts:", error);
+      }
+    }
+
+    function renderContacts(contacts) {
+      contactList.innerHTML = "";
+      contacts.forEach((contact) => {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+          <td class="py-2 px-4 border">${contact.id}</td>
+          <td class="py-2 px-4 border">${contact.name}</td>
+          <td class="py-2 px-4 border">${contact.email}</td>
+          <td class="py-2 px-4 border">
+            <button onclick="editContact('${contact.id}', '${contact.name}', '${contact.email}')" class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Edit</button>
+            <button onclick="deleteContact('${contact.id}')" class="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
+          </td>
+        `;
+        contactList.appendChild(row);
+      });
+    }
+
+    async function editContact(id, currentName, currentEmail) {
+      const updatedName = prompt("Enter updated name:", currentName);
+      const updatedEmail = prompt("Enter updated email:", currentEmail);
+
+      if (updatedName && updatedEmail) {
+        try {
+          const response = await fetch(`${apiUrl}/${id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: updatedName, email: updatedEmail }),
+          });
+
+          if (response.ok) {
+            alert("Contact updated successfully!");
+            fetchContacts();
+          } else {
+            alert(`Contact with ID ${id} not found.`);
+          }
+        } catch (error) {
+          console.error("Error updating contact:", error);
+        }
+      } else {
+        alert("Update canceled or incomplete input.");
+      }
+    }
+
+    async function deleteContact(id) {
+      if (!confirm("Are you sure you want to delete this contact?")) return;
+
+      try {
+        const response = await fetch(`${apiUrl}/${id}`, {
+          method: "DELETE",
+        });
+
+        if (response.ok) {
+          alert("Contact deleted successfully!");
+          fetchContacts();
+        } else {
+          alert(`Contact with ID ${id} not found.`);
+        }
+      } catch (error) {
+        console.error("Error deleting contact:", error);
+      }
+    }
+  </script>
 </body>
-
 </html>
