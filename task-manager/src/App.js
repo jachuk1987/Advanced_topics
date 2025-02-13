@@ -1,19 +1,22 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Auth from "./pages/Auth";
+import TaskList from "./pages/TaskList";
+import TaskForm from "./components/TaskForm"; 
 
-import Auth from './pages/auth';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import TaskList from './pages/TaskList'
-const App = () => {
-  return <>
-    <div style={{ marginBottom: "40px" }}>
-      <Auth/>
-      {/* <Login />
-      <Signup/> */}
-    </div>
-    <div>
-      <TaskList />
-    </div>
-  </>
+function App() {
+  return (
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/login" element={<Auth />} />
+        <Route path="/signup" element={<Auth />} />
+        <Route path="/tasks" element={<TaskList />} />
+        <Route path="/tasks/:id" element={<TaskForm />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
