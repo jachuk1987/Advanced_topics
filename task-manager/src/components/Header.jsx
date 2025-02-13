@@ -21,6 +21,7 @@ const Header = () => {
         </Typography>
         {user ? (
           <>
+            <Typography sx={{ mr: 2 }}>{user.userName}</Typography>
             <Button color="inherit" component={Link} to="/tasks">Tasks</Button>
             <Button color="inherit" onClick={handleLogout}>Logout</Button>
           </>
