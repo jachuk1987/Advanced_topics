@@ -1,13 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Auth from "./pages/Auth";
-import TaskList from "./pages/TaskList";
+import Auth from "./pages/auth";
+import TaskList from "./pages/TaskList"; 
 import TaskForm from "./components/TaskForm"; 
 
 function App() {
   return (
-    <Router>
+    <>
       <Header />
       <Routes>
         <Route path="/login" element={<Auth />} />
@@ -15,7 +15,7 @@ function App() {
         <Route path="/tasks" element={<TaskList />} />
         <Route path="/tasks/:id" element={<TaskForm />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 
