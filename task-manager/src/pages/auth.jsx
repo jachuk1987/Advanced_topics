@@ -70,7 +70,7 @@ const Auth = () => {
               {isSignup ? "Already have an account? Login" : "New user? Sign up"}
             </Button>
           </>
-        )};
+        )}
       </Paper>
     </Container>
   );
