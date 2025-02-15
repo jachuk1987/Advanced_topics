@@ -8,6 +8,12 @@ const SearchBar = () => {
 
   const timeoutRef = useRef(null); // Step 1
 
+//   const handleChange = (e) => {
+//     const value = e.target.value;
+//     setInput(value);
+//     dispatch(setQuery(value)); // Dispatch immediately on input change
+//   };
+
   const handleChange = (e) => {
     const value = e.target.value;
     setInput(value); 
