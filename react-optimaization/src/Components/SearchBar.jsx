@@ -64,9 +64,8 @@ const SearchBar = () => {
     <div style={{ padding: "20px", fontFamily: "Arial" }}>
       <h2>Search Bar (Immediate, Debounce & Throttle)</h2>
 
-      {/* 🔴 Immediate Search */}
       <div style={{ marginBottom: "10px" }}>
-        <h3>🔴 Immediate Search Dispatch</h3>
+        <h3> Immediate Search Dispatch</h3>
         <input
           type="text"
           value={input}
@@ -76,9 +75,8 @@ const SearchBar = () => {
         />
       </div>
 
-      {/* 🟢 Debounced Search */}
       <div style={{ marginBottom: "10px" }}>
-        <h3>🟢 Debounced Search (1000ms Delay)</h3>
+        <h3> Debounced Search (1000ms Delay)</h3>
         <input
           type="text"
           value={input}
@@ -88,9 +86,8 @@ const SearchBar = () => {
         />
       </div>
 
-      {/* 🔵 Throttled Search */}
       <div>
-        <h3>🔵 Throttled Search (1 Update Per Second)</h3>
+        <h3> Throttled Search (1 Update Per Second)</h3>
         <input
           type="text"
           value={input}
