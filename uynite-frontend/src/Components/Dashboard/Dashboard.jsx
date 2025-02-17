@@ -1,10 +1,10 @@
 import React from "react";
 import RequestCard from "../RequestCard";
 import celebrityIcon from "../../assets/Celibrity Request.svg";
-import eventIcon from "../../assets/Sponserd event.svg";
-import reportsIcon from "../../assets/Reports.svg";
-import supportIcon from "../../assets/Support.svg";
-import blockedIcon from "../../assets/Block user.svg";
+// import eventIcon from "../../assets/Sponserd event.svg";
+// import reportsIcon from "../../assets/Reports.svg";
+// import supportIcon from "../../assets/Support.svg";
+// import blockedIcon from "../../assets/Block user.svg";
 
 const Dashboard: React.FC = () => {
   return (
