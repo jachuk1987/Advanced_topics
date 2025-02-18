@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../store/store";
 import { updateVerificationStatus, revokeCelebrityStatus } from "../store/celebrityRequestSlice";
