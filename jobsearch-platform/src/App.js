@@ -1,8 +1,9 @@
 import React from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
-import JobListings from './components/JobListings';
-import UserProfile from './components/UserProfile';
-import Notifications from './components/Notifications';
+import { Link, Route, Routes } from 'react-router-dom';
+import JobListings from './Components/JobListing';
+import UserProfile from './Components/UserProfile';
+import Notifications from './Components/Notifications';
+
 
 const App = () => {
   return (

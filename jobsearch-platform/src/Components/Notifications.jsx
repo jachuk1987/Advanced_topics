@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeNotification } from '../features/notificationSlice';
+import { removeNotification } from '../redux/notificationSlice';
 
 const Notifications = () => {
   const notifications = useSelector((state) => state.notifications);

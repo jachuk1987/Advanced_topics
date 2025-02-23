@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeJob } from '../features/jobsSlice';
+import { removeJob } from '../redux/jobsSlice';
 
 const JobListings = () => {
   const jobs = useSelector((state) => state.jobs);
