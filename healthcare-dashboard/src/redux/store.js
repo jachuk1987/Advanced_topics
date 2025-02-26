@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import appointmentsReducer from "./slices/appointmentsSlice";
-import historyReducer from "./slices/historySlice";
-import prescriptionsReducer from "./slices/prescriptionsSlice";
+import appointmentsReducer from "./appointmentsSlice";
+import historyReducer from "./historySlice";
+import prescriptionsReducer from "./prescriptionSlice";
 
 const store = configureStore({
   reducer: {
