@@ -1,13 +1,23 @@
 import React, { useState } from "react";
-import { login } from "../services/authService";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../redux/authSlice";
+import api from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const userData = await login(email, password);
-    console.log("User logged in:", userData);
+    try {
+      const response = await api.post("/login", { email, password });
+      dispatch(loginSuccess(response.data));
+      navigate("/");
+    } catch (error) {
+      console.error("Login failed", error.response?.data || error.message);
+    }
   };
 
   return (
