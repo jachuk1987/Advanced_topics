@@ -1,13 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import appointmentsReducer from "./appointmentsSlice";
-import historyReducer from "./historySlice";
-import prescriptionsReducer from "./prescriptionSlice";
+import authReducer from "./authSlice";
 
 const store = configureStore({
   reducer: {
-    appointments: appointmentsReducer,
-    history: historyReducer,
-    prescriptions: prescriptionsReducer,
+    auth: authReducer,
   },
 });
 
