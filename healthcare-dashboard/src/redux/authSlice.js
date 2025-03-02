@@ -5,7 +5,7 @@ const getStoredUser = () => {
   try {
     const storedUser = localStorage.getItem("user");
 
-    // Ensure it's not "undefined" or "null" as a string
+    // Ensure it's not null, undefined, or invalid JSON
     if (!storedUser || storedUser === "undefined" || storedUser === "null") {
       return null;
     }
@@ -19,7 +19,7 @@ const getStoredUser = () => {
 
 const initialState = {
   user: getStoredUser(),
-  isAuthenticated: Boolean(getStoredUser()),
+  isAuthenticated: !!getStoredUser(),
 };
 
 const authSlice = createSlice({
@@ -29,12 +29,12 @@ const authSlice = createSlice({
     login: (state, action) => {
       state.user = action.payload;
       state.isAuthenticated = true;
-      localStorage.setItem("user", JSON.stringify(action.payload)); // Store user in localStorage
+      localStorage.setItem("user", JSON.stringify(action.payload)); // ✅ Store valid JSON
     },
     logout: (state) => {
       state.user = null;
       state.isAuthenticated = false;
-      localStorage.removeItem("user"); // Remove user from localStorage
+      localStorage.removeItem("user"); // ✅ Clear storage on logout
     },
   },
 });
