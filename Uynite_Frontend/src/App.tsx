@@ -5,6 +5,7 @@ import CelebrityRequest from "./Components/CelebrityRequest/CelebrityRequest";
 import SponsoredEvent from "./Components/SponsoredEvent/SponsoredEvent";
 import Reports from "./Components/Reports/Reports";
 import Support from "./Components/Support/Support";
+import BlockedUsers from "./Components/BlockedUsers/BlockedUsers";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Route path="/sponsored-event" element={<SponsoredEvent />} />
         <Route path="/reports" element={<Reports />} />
         <Route path="/support" element={<Support />} />
-        <Route path="/blocked-users" element={<Blocked}/>
+        <Route path="/blocked-users" element={<BlockedUsers />} />
       </Routes>
     </Router>
   );
