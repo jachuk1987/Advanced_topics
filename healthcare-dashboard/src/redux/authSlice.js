@@ -1,28 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// Get user from localStorage safely
+const storedUser = localStorage.getItem("user");
+const initialUser = storedUser ? JSON.parse(storedUser) : null;
+
 const initialState = {
-  user: JSON.parse(localStorage.getItem("user")) || null,
-  token: localStorage.getItem("token") || null,
+  user: initialUser,
+  isAuthenticated: !!initialUser,
 };
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    loginSuccess: (state, action) => {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
-      localStorage.setItem("user", JSON.stringify(action.payload.user));
-      localStorage.setItem("token", action.payload.token);
+    login: (state, action) => {
+      state.user = action.payload;
+      state.isAuthenticated = true;
+      localStorage.setItem("user", JSON.stringify(action.payload)); // Store user in localStorage
     },
     logout: (state) => {
       state.user = null;
-      state.token = null;
-      localStorage.removeItem("user");
-      localStorage.removeItem("token");
+      state.isAuthenticated = false;
+      localStorage.removeItem("user"); // Remove user from localStorage
     },
   },
 });
 
-export const { loginSuccess, logout } = authSlice.actions;
+export const { login, logout } = authSlice.actions;
 export default authSlice.reducer;
