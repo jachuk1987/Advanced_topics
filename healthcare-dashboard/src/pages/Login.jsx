@@ -18,20 +18,18 @@ const Login = () => {
     e.preventDefault();
     setError("");
 
-    // Simulated user credentials (Replace with API call in real projects)
-    const validUser = { email: "test@example.com", password: "password123" };
-
-    if (formData.email === validUser.email && formData.password === validUser.password) {
+    // Allow any email and password
+    if (formData.email && formData.password) {
       const userData = {
-        name: "John Doe",
+        name: "User", // You can change this dynamically if needed
         email: formData.email,
-        token: "abc123",
+        token: "dummy_token_123", // Replace with an actual token from an API
       };
 
       dispatch(login(userData)); // Update Redux store
       navigate("/dashboard"); // Redirect after login
     } else {
-      setError("Invalid email or password");
+      setError("Please enter both email and password.");
     }
   };
 
