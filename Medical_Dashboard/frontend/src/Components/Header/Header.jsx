@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../../assets/images/logo.png';
+import userImg from '../../assets/images/avatar-icon.png';
 import { NavLink, Link } from "react-router-dom";
 
 const navLinks = [
@@ -47,7 +48,23 @@ const Header = () => {
           </ul>
         </div>
 
-        
+        <div className='flex items-center gap-4'>
+          <div>
+            <Link to='/'>
+              <figure className='w-[35px] h-[35px] rounded-full'>
+                <img src={userImg} className='w-full rounded-full' alt="" />
+              </figure>
+            </Link>
+          </div>
+
+          <Link to='/login'>
+            <button className='bg-primaryColony py-2 px-6 text-white font-[600] h-[44px]flex items-center'>Login</button>
+          </Link>
+
+            <span>
+              
+            </span>
+        </div>
       </div>
     </div>
   </header>
