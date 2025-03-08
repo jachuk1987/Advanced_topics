@@ -114,7 +114,7 @@ const Home = () => {
 
             <div className='mt-[30px]'>
               <h2 className='text-[26px] leading-9 text-headingColor font-[700] text-center'>
-                Find a Doctor
+                Find a Location
               </h2>
               <p className='text-[16px] leading-7 text-textColor font-[400] mt-4 text-center'>
                 World-class care for everyone. Our health System Offers
@@ -134,7 +134,7 @@ const Home = () => {
 
             <div className='mt-[30px]'>
               <h2 className='text-[26px] leading-9 text-headingColor font-[700] text-center'>
-                Find a Doctor
+                Book Appointment
               </h2>
               <p className='text-[16px] leading-7 text-textColor font-[400] mt-4 text-center'>
                 World-class care for everyone. Our health System Offers
