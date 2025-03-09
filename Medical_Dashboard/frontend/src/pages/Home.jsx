@@ -88,7 +88,7 @@ const Home = () => {
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-[30px] mt-[30px] lg:mt-[55px]'>
 
-        <div className='py-[30px] px-5'>
+          <div className='py-[30px] px-5'>
             <div className='flex items-center justify-center'>
               <img src={icon01} alt="" />
             </div>
@@ -154,6 +154,19 @@ const Home = () => {
     </section>
 
     <About />
+
+    {/*========= Services section ========== */}
+
+    <section>
+      <div className='container'>
+        <div className='xl:w-[470px] mx-auto'>
+          <h2 className='heading text-center'>Our medical services</h2>
+          <p className='text__para text-center'>World-class care for everyone. Our health System offers unmatched, expert health care.</p>
+        </div>
+      </div>
+    </section>
+    {/*========= Services section ========== */}
+
   </>
 }
 
