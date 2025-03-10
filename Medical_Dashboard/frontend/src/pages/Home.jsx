@@ -170,6 +170,27 @@ const Home = () => {
     </section>
     {/*========= Services section ========== */}
 
+    {/*========= feature section ========== */}
+    <section>
+      <div className='container'>
+        <div className='flex items-center justify-between flex-col lg:flex-row'>
+
+          {/*========= feature content ========== */}
+          <div>
+            <h2 className='heading'>
+              Get virtual treatment <br />anytime.
+            </h2>
+            <ul className='pl-4'>
+              <li className='text__para'>
+                1. Schedule the appointment directly.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/*========= feature section ========== */}
+
   </>
 }
 
