@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs"
 import About from '../Components/About/About';
 import ServiceList from '../Components/Services/ServiceList';
+import DoctorList from '../Components/Doctors/DoctorList';
 
 const Home = () => {
   return <>
@@ -246,6 +247,8 @@ const Home = () => {
             World-class care for everyone. Our health System offers unmatched, expert health care.
           </p>
         </div>
+        
+        <DoctorList />
       </div>
     </section>
     {/*========= our great doctors ========== */}
