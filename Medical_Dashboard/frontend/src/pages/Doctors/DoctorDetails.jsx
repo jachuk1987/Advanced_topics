@@ -1,5 +1,6 @@
 import React from 'react';
 import doctorImg from "../../assets/images/doctor-img02.png";
+import starIcon from "../../assets/images/Star.png";
 
 const DoctorDetails = () => {
   return (
@@ -13,8 +14,21 @@ const DoctorDetails = () => {
               </figure>
 
               <div>
-                <span></span>
+                <span className="bg-[#CCF0F3] text-irisBlueColor py-1 px-6 lg:py-2 lg:px-6 text-[12px] leading-4 lg:text-[16px] lg:leading-7 font-semibold rounded">
+                  Surgeon
+                </span>
+
+                <h3 className="text-headingColor text-[22px] leading-9 mt-3 font-bold">
+                  Muhibur Rahman
+                </h3>
+
+                <div className="flex items-center gap-[6px]">
+                  <span className="flex items-center gap-[6px] text-[14px] leading-5 lg:text-[16px] lg:leading-7 font-semibold text-headingColor">
+                    <img src={starIcon} alt="" />
+                  </span>
+                </div>
               </div>
+
             </div>
           </div>
 
