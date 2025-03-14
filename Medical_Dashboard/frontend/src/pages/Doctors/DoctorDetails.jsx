@@ -30,9 +30,25 @@ const DoctorDetails = () => {
                     (272)
                   </span>
                 </div>
-              </div>
 
+                <p className="text__para text-[14px] leading-6 md:text-[15px] lg:max-w-[390px]">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Dicta, alias!
+                </p>
+
+              </div>
             </div>
+
+            <div className="mt-[50px] border-b border-solid border-[#0066ff34]">
+              <button className={`py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold`}>
+                About
+              </button>
+
+              <button className={`py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold`}>
+                Feedback
+              </button>
+            </div>
+
           </div>
 
           <div></div>
