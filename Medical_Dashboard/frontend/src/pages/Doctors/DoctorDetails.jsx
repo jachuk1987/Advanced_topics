@@ -56,6 +56,11 @@ const DoctorDetails = () => {
             </button>
           </div>
 
+          <div className='mt-[50px]'>
+            {
+              tab==='about'
+            }
+          </div>
         </div>
 
         <div></div>
