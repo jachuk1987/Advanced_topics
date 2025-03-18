@@ -1,6 +1,7 @@
 import React from 'react';
 import DoctorCard from "../../Components/Doctors/DoctorCard";
 import { doctors } from "../../assets/data/doctors";
+import Testimonial from '../../Components/Testimonial/Testimonial';
 
 const Doctors = () => {
   return (
