@@ -22,10 +22,13 @@ const Signup = () => {
   };
 
   const handleFileInputChange = async (event) => {
+    const file = event.target.files[0];
 
-    const file = event.target.files[0]
+    console.log(file);
+  };
 
-    console.log(file)
+  const submitHandler = async event => {
+    event.preventDefault()
   }
 
   return (
@@ -45,7 +48,7 @@ const Signup = () => {
               Create an <span className="text-primaryColor">account</span>
             </h3>
 
-            <form>
+            <form onSubmit={submitHandler}>
               <div className="mb-5">
                 <input
                   type="text"
@@ -98,7 +101,7 @@ const Signup = () => {
                   <select
                     name="gender"
                     value={formData.gender}
-                  onChange={handleInputChange}
+                    onChange={handleInputChange}
                     className="text-textColor font-semibold text-[15px] leading-7 px-4 py-3 focus:outline-none"
                   >
                     <option value="">Select</option>
@@ -119,6 +122,7 @@ const Signup = () => {
                     type="file"
                     name="photo"
                     id="customFile"
+                    onChange={handleFileInputChange}
                     accept=".jpg, .png"
                     className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
                   />
