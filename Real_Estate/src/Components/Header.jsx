@@ -7,6 +7,14 @@ const Header = () => {
       style={{ backgroundImage: "url('/header_img.png')" }}
       id='Header'>
       <Navbar />
+      <div>
+        <h2>Explore homes that fit your dreams</h2>
+        <div>
+          <a href="">Projects</a>
+          <a href="">Contact Us</a>
+
+        </div>
+      </div>
     </div>
 
   )
