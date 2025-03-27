@@ -10,8 +10,8 @@ const Header = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        height: "100vh", // Ensures full viewport height
-        width: "100%", // Full width
+        height: "100vh",
+        width: "100%",
       }}
       id="Header"
     >
