@@ -7,7 +7,7 @@ const Header = () => {
       className="h-screen w-full flex items-center justify-center relative"
       style={{
         backgroundImage: "url('/header_img.png')",
-        backgroundSize: "cover", // Ensures the image covers the full div
+        backgroundSize: "cover",
         backgroundPosition: "center", // Centers the image properly
         backgroundRepeat: "no-repeat", // Prevents repetition
         height: "100vh", // Ensures full viewport height
