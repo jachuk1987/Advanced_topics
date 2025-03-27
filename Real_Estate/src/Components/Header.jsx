@@ -8,8 +8,8 @@ const Header = () => {
       style={{
         backgroundImage: "url('/header_img.png')",
         backgroundSize: "cover",
-        backgroundPosition: "center", // Centers the image properly
-        backgroundRepeat: "no-repeat", // Prevents repetition
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         height: "100vh", // Ensures full viewport height
         width: "100%", // Full width
       }}
