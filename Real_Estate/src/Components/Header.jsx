@@ -4,27 +4,30 @@ import Navbar from './Navbar';
 const Header = () => {
   return (
     <div
-      className="h-screen w-full flex items-center justify-center relative"
-      style={{
-        backgroundImage: "url('/header_img.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        height: "100vh",
-        width: "100%",
-      }}
+      className="min-h-screen mb-4 bg-cover bg-center w-full overflow-hidden flex items-center"
+      style={{ backgroundImage: "url('/header_img.png')" }}
       id="Header"
     >
+      {/* Navbar */}
       <Navbar />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
-        <h2 className="text-4xl font-bold">Explore homes that fit your dreams</h2>
-        <div className="mt-4">
-          <a href="#" className="px-4 py-2 bg-blue-500 text-white rounded-lg mx-2">Projects</a>
-          <a href="#" className="px-4 py-2 bg-green-500 text-white rounded-lg mx-2">Contact Us</a>
+
+      {/* Hero Section */}
+      <div className="container text-center mx-auto py-4 px-6 md:px-20 lg:px-32 text-white">
+        <h2 className="text-5xl sm:text-6xl md:text-[82px] inline-block max-w-3xl font-semibold pt-20">
+          Explore homes that fit your dreams
+        </h2>
+
+        {/* CTA Buttons */}
+        <div className="mt-6 flex justify-center gap-6">
+          <a href="#Projects" className="bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition">
+            Projects
+          </a>
+          <a href="#Contact" className="border border-white px-6 py-2 rounded-full font-medium hover:bg-white hover:text-black transition">
+            Contact Us
+          </a>
         </div>
       </div>
     </div>
-
 
   )
 }
