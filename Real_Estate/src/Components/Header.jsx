@@ -18,7 +18,7 @@ const Header = () => {
         </h2>
 
         {/* CTA Buttons */}
-        <div className="mt-6 flex justify-center gap-6">
+        <div className="space-x-6 mt-16">
           <a href="#Projects" className="bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition">
             Projects
           </a>
