@@ -8,8 +8,10 @@ const About = () => {
       <p className='text-gray-500 max-w-80 text-center mb-8'>Passionate About Properties, Dedicated to Your Vision</p>
       <div className='flex flex-col md:flex-row items-center md:items-start md:gap-20'>
         <img src={assets.brand_img} alt="" className='w-full sm:w-1/2 max-w-lg'/>
-        <div className='flex flex-col items-center md:items-start mt-10'>
+        <div className='flex flex-col items-center md:items-start mt-10 text-gray-600'>
+          <div className='grid grid-cols-2'>
 
+          </div>
         </div>
       </div>
     </div>
