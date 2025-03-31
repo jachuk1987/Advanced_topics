@@ -11,7 +11,7 @@ const About = () => {
         <div className='flex flex-col items-center md:items-start mt-10 text-gray-600'>
           <div className='grid grid-cols-2 gap-6 md:gap-10 w-full 2x1:pr-28'>
             <div>
-              <p>10+</p>
+              <p className='text-4x1 font-medium text-gray-800'>10+</p>
               <p>Years of Excellence</p>
             </div>
           </div>
