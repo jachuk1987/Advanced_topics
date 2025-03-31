@@ -14,6 +14,18 @@ const About = () => {
               <p className='text-4x1 font-medium text-gray-800'>10+</p>
               <p>Years of Excellence</p>
             </div>
+            <div>
+              <p className='text-4x1 font-medium text-gray-800'>10+</p>
+              <p>Projects Completed</p>
+            </div>
+            <div>
+              <p className='text-4x1 font-medium text-gray-800'>10+</p>
+              <p>Mn. Sq. Ft. Delivered</p>
+            </div>
+            <div>
+              <p className='text-4x1 font-medium text-gray-800'>10+</p>
+              <p>Ongoing Projects</p>
+            </div>
           </div>
         </div>
       </div>
