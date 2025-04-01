@@ -27,6 +27,7 @@ const About = () => {
               <p>Ongoing Projects</p>
             </div>
           </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum veniam quam cumque consectetur labore adipisci impedit repudiandae tempore id commodi ullam voluptate perspiciatis perferendis, maiores unde dolorum asperiores, voluptates mollitia!</p>
         </div>
       </div>
     </div>
