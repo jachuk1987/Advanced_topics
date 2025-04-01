@@ -10,8 +10,16 @@ const Projects = () => {
         const updateCardsToShow = () => {
             if (window.innerWidth >= 1024) {
                 setCardsToSHow(projectsData.length)
-            }
-        }
+            } else {
+                setCardsToSHow(1)
+            };
+        };
+        
+        updateCardsToShow();
+
+        window.addEventListener('resize', updateCardsToShow);
+        return () => window.removeEventListener('resize', updateCardsToShow);
+
     }, [])
 
     const nextProject = () => {
