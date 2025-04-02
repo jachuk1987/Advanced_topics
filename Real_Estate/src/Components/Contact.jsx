@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Contact = () => {
+
+    const [result, setResult] = React.useState("");
     return (
         <div className='text-center p-6 py-20 lg:px-32 w-full overflow-hidden' id='Contact'>
             <h1 className='text-2x1 sm:text-4x1 font-bold mb-2 text-center'>Contact <span className='underline underline-offset-4 decoration-1 under font-light'>With Us</span></h1>
