@@ -197,3 +197,57 @@ import {
       <ListItem>Three</ListItem>
     </List>
   );
+
+  export const _Tooltip = () => (
+    <Tooltip title="Tooltip">
+      <Box />
+    </Tooltip>
+  );
+  
+  export const _Typography = () => <Typography>Text</Typography>;
+  export const _Typography_heading = () => (
+    <Typography variant="h1">Heading</Typography>
+  );
+  export const _Typography_subtitle = () => (
+    <Typography variant="subtitle1">Subtitle</Typography>
+  );
+  export const _Typography_body = () => (
+    <Typography variant="body1">Body</Typography>
+  );
+  
+  /* Feedback
+       -------- */
+  
+  export const _Alert = () => <Alert severity="warning">Alert</Alert>;
+  
+  export const _Alert_with_title = () => (
+    <Alert severity="warning">
+      <AlertTitle>Title</AlertTitle>
+      Description
+    </Alert>
+  );
+  
+  export const _Backdrop = () => <Backdrop open />;
+  
+  export const _Dialog = () => (
+    <Dialog
+      open={false}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+    >
+      <DialogTitle id="alert-dialog-title">Title</DialogTitle>
+      <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+          Description
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button>Disagree</Button>
+        <Button autoFocus>Agree</Button>
+      </DialogActions>
+    </Dialog>
+  );
+  export const _Paper = () => <Paper />;
+  export const _InputBase = () => <InputBase />;
+  export const _InputAdornment = () => <InputAdornment />;
+  
