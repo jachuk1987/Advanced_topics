@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Box, Hidden, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import homeIcon from "../../assets/icons/icon-nav-home.svg";
 import movieIcon from "../../assets/icons/icon-nav-movies.svg";
 import tvSeriesIcon from "../../assets/icons/icon-nav-tv-series.svg";
@@ -35,6 +35,9 @@ const navLinks = [
 
 const Sidebar = () => {
   const { pathname } = useLocation();
+  const theme = useTheme();
+  const isSmUp = useMediaQuery(theme.breakpoints.up("sm"));
+  const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <Box
@@ -70,7 +73,7 @@ const Sidebar = () => {
           width: "100%",
         }}
       >
-        <Hidden smDown>
+        {isSmUp && (
           <Typography
             variant="h5"
             component="h1"
@@ -80,7 +83,7 @@ const Sidebar = () => {
           >
             PikaShowApp
           </Typography>
-        </Hidden>
+        )}
 
         <Box
           sx={{
@@ -123,9 +126,7 @@ const Sidebar = () => {
                     }`,
                   }}
                 />
-                <Hidden mdDown>
-                  <Typography>{item.name}</Typography>
-                </Hidden>
+                {isMdUp && <Typography>{item.name}</Typography>}
               </Box>
             </Link>
           ))}
