@@ -1,5 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Sidebar from "./Components/Sidebar";
+import { createContext } from "react";
+
+const MyContext = createContext();
 
 function App() {
 
@@ -11,7 +14,7 @@ function App() {
     <>
       <BrowserRouter>
         <MyContext.Provider value={values}>
-          <section className="main">
+          <section className="main flex">
             <div className="sidebarWrapper w-[20%]">
               <Sidebar />
             </div>
