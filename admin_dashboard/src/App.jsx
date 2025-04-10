@@ -17,11 +17,11 @@ function App() {
       <BrowserRouter>
         <MyContext.Provider value={values}>
           <section className="main flex">
-            <div className="sidebarWrapper w-[20%]">
+            <div className="sidebarWrapper w-[15%]">
               <Sidebar />
             </div>
 
-            <div className="content_Right w-[80%]">
+            <div className="content_Right w-[85%] px-3">
               <Routes>
                 <Route path="/" exact={true} element={<Dashboard />} />
               </Routes>
