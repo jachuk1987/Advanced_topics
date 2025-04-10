@@ -1,6 +1,8 @@
+import React from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Sidebar from "./Components/Sidebar";
 import { createContext } from "react";
+import Dashboard from "./pages/Dashboard";
 
 const MyContext = createContext();
 
