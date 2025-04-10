@@ -1,15 +1,19 @@
-import React from 'react';
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Sidebar from "./Components/Sidebar";
 
 function App() {
+
+  const values = {
+
+  }
+
   return (
     <>
       <BrowserRouter>
         <MyContext.Provider value={values}>
           <section className="main">
             <div className="sidebarWrapper w-[20%]">
+              <Sidebar />
             </div>
 
             <div className="content_Right w-[80%]">
