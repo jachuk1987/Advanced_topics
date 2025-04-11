@@ -6,7 +6,7 @@ const Sidebar = () => {
     <>
       <div className='sidebar fixed top-0 left-0 z-[100] w-[15%]'>
         <div className='logoWrapper'>
-          <img src={Logo} className='' />
+          <img src={Logo} className='w-100' />
         </div>
       </div>
     </>
