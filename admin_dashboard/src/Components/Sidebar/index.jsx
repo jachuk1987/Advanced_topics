@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Logo from "../../assets/images/logo.png";
 
 const Sidebar = () => {
   return (
