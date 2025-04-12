@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from "../../assets/images/logo.png";
 import { Link } from 'react-router-dom';
+import Button from "@mui/material/Button";
 
 const Sidebar = () => {
   return (
@@ -12,7 +13,7 @@ const Sidebar = () => {
           </div>
         </Link>
 
-        <div className='sidebarTab'>
+        <div className='sidebarTabs'>
 
         </div>
       </div>
