@@ -9,3 +9,4 @@ body{background: #f1f1f1;}
 
 .main .sidebarWrapper{ height: 100vh;}
 .main .sidebarWrapper .sidebar{ height: 100vh; background: #fff;}
+.main .sidebarWrapper .sidebar .sidebarTabs button{justify-content: flex-start !important; color: #222222;}

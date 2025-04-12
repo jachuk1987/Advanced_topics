@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from "../../assets/images/logo.png";
 import { Link } from 'react-router-dom';
 import Button from "@mui/material/Button";
+import { MdOutlineDashboard } from "react-icons/md";
 
 const Sidebar = () => {
   return (
@@ -14,7 +15,8 @@ const Sidebar = () => {
         </Link>
 
         <div className='sidebarTabs'>
-          <Button><span className='icon mr-3 w-[25px] h-[25px] flex items-center justify-center rounded-md'></span>
+          <Button className='w-100'>
+            <span className='icon w-[25px] h-[25px] flex items-center justify-center rounded-md'><MdOutlineDashboard /></span>
             Dashboard
           </Button>
         </div>
