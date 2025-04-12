@@ -11,6 +11,10 @@ const Sidebar = () => {
             <img src={Logo} className='w-100' />
           </div>
         </Link>
+
+        <div className='sidebarTab'>
+
+        </div>
       </div>
     </>
   )
