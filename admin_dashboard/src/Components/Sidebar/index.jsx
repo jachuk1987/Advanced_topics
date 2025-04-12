@@ -14,7 +14,9 @@ const Sidebar = () => {
         </Link>
 
         <div className='sidebarTabs'>
-          <Button></Button>
+          <Button><span className='icon mr-3 w-[25px] h-[25px] flex items-center justify-center rounded-md'></span>
+            Dashboard
+          </Button>
         </div>
       </div>
     </>
