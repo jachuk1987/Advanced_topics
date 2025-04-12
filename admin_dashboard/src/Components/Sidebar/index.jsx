@@ -14,7 +14,7 @@ const Sidebar = () => {
         </Link>
 
         <div className='sidebarTabs'>
-
+          <Button></Button>
         </div>
       </div>
     </>
