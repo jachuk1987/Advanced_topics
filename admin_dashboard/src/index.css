@@ -10,5 +10,5 @@ body{background: #f1f1f1;   font-family: "Open Sans", sans-serif;}
 
 .main .sidebarWrapper{ height: 100vh;}
 .main .sidebarWrapper .sidebar{ height: 100vh; background: #fff;}
-.main .sidebarWrapper .sidebar .sidebarTabs button{justify-content: flex-start !important; color: #222222; text-transform: capitalize;}
+.main .sidebarWrapper .sidebar .sidebarTabs button{justify-content: flex-start !important; color: #222222; text-transform: capitalize; font-size: 16px;}
 .main .sidebarWrapper .sidebar .sidebarTabs button svg{font-size: 20px;}
