@@ -16,7 +16,7 @@ const Sidebar = () => {
 
         <div className='sidebarTabs'>
           <Button className='w-100'>
-            <span className='icon w-[25px] h-[25px] flex items-center justify-center rounded-md'><MdOutlineDashboard /></span>
+            <span className='icon w-[30px] h-[30px] flex items-center justify-center rounded-md'><MdOutlineDashboard /></span>
             Dashboard
           </Button>
         </div>
