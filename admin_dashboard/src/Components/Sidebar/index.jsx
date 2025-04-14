@@ -22,8 +22,8 @@ const Sidebar = () => {
           </Button>
 
           <Button className='w-100'>
-            <span className='icon w-[30px] h-[30px] flex items-center justify-center rounded-md'><MdOutlineDashboard /></span>
-            Dashboard
+            <span className='icon w-[30px] h-[30px] flex items-center justify-center rounded-md'><FaProductHunt /></span>
+            Products
           </Button>
 
           <Button className='w-100'>
