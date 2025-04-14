@@ -3,7 +3,7 @@ import Logo from "../../assets/images/logo.png";
 import { Link } from 'react-router-dom';
 import Button from "@mui/material/Button";
 import { MdOutlineDashboard } from "react-icons/md";
-import { FaProductHunt } from "react-icons/fa";
+import { FaAngleRight, FaProductHunt } from "react-icons/fa";
 
 const Sidebar = () => {
   return (
@@ -24,6 +24,8 @@ const Sidebar = () => {
           <Button className='w-100'>
             <span className='icon w-[30px] h-[30px] flex items-center justify-center rounded-md'><FaProductHunt /></span>
             Products
+
+            <span className='arrow mx-auto w-[25px] h-[25px]'><FaAngleRight /></span>
           </Button>
 
           <Button className='w-100'>
