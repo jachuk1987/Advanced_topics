@@ -25,7 +25,7 @@ const Sidebar = () => {
             <span className='icon w-[30px] h-[30px] flex items-center justify-center rounded-md'><FaProductHunt /></span>
             Products
 
-            <span className='arrow mx-auto w-[25px] h-[25px]'><FaAngleRight /></span>
+            <span className='arrow ml-auto w-[25px] h-[25px]'><FaAngleRight /></span>
           </Button>
 
           <Button className='w-100'>
