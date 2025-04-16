@@ -1,4 +1,3 @@
-// src/components/JobList.tsx
 import React from 'react';
 import {
   List,

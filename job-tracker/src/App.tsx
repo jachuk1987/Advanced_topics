@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { Container, Typography } from '@mui/material';
+import { v4 as uuidv4 } from 'uuid';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import JobForm from './Components/JobForm';
+import JobList from './Components/JobList';
+import SearchBar from './Components/SearchBar';
+import type { JobApplication } from './types/job';
+
+type FormJobApplication = Omit<JobApplication, 'id'> & { notes?: string };
+
+const App: React.FC = () => {
+  const [applications, setApplications] = useState<JobApplication[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [form, setForm] = useState<FormJobApplication>({
+    company: '',
+    role: '',
+    status: 'Applied',
+    date: '',
+    notes: '',
+  });
+
+  useEffect(() => {
+    const stored = localStorage.getItem('jobApplications');
+    if (stored) {
+      setApplications(JSON.parse(stored));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('jobApplications', JSON.stringify(applications));
+  }, [applications]);
+
+  const handleAddApplication = () => {
+    const newApp: JobApplication = { id: uuidv4(), ...form };
+    setApplications([...applications, newApp]);
+    setForm({ company: '', role: '', status: 'Applied', dateApplied: '', notes: '' });
+  };
+
+  const handleDelete = (id: string) => {
+    setApplications(applications.filter((app) => app.id !== id));
+  };
+
+  const filteredApplications = applications.filter((app) =>
+    app.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    app.role.toLowerCase().includes(searchTerm.toLowerCase())
   );
-}
+
+  return (
+    <Container maxWidth="md">
+      <Typography variant="h4" gutterBottom>Job Tracker</Typography>
+
+      <JobForm form={form} setForm={setForm} handleAddApplication={handleAddApplication} />
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <JobList applications={filteredApplications} handleDelete={handleDelete} />
+    </Container>
+  );
+};
 
 export default App;
