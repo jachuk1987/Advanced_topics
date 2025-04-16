@@ -2,7 +2,6 @@ import React from 'react';
 import { TextField, MenuItem } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
-
 interface FilterBarProps {
   filterStatus: string;
   setFilterStatus: React.Dispatch<React.SetStateAction<string>>;
