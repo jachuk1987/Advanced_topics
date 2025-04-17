@@ -28,7 +28,7 @@ const JobList: React.FC<JobListProps> = ({ applications, handleDelete }) => {
           >
             <ListItemText
               primary={`${app.company} - ${app.role}`}
-              secondary={`${app.status} | Applied on: ${app.dateApplied}`}
+              secondary={`${app.status} | Applied on: ${new Date(app.dateApplied).toLocaleDateString()}`}
             />
           </ListItem>
           <Divider />
