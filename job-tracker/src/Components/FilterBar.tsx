@@ -1,28 +1,28 @@
 import React from 'react';
-import { TextField, MenuItem } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import { TextField, MenuItem } from '@mui/material';
 
 interface FilterBarProps {
-  filterStatus: string;
-  setFilterStatus: React.Dispatch<React.SetStateAction<string>>;
+  status: string;
+  onStatusChange: (status: string) => void;
 }
 
-const statusOptions = ['All', 'Applied', 'Interviewing', 'Rejected', 'Offer'];
-
-const FilterBar: React.FC<FilterBarProps> = ({ filterStatus, setFilterStatus }) => {
+const FilterBar: React.FC<FilterBarProps> = ({ status, onStatusChange }) => {
   return (
     <Grid container spacing={2} style={{ marginBottom: 16 }}>
       <Grid item xs={12} sm={6}>
         <TextField
           select
           label="Filter by Status"
+          value={status}
+          onChange={(e) => onStatusChange(e.target.value)}
           fullWidth
-          value={filterStatus}
-          onChange={(e) => setFilterStatus(e.target.value)}
         >
-          {statusOptions.map((status) => (
-            <MenuItem key={status} value={status}>{status}</MenuItem>
-          ))}
+          <MenuItem value="">All</MenuItem>
+          <MenuItem value="Applied">Applied</MenuItem>
+          <MenuItem value="Interviewing">Interviewing</MenuItem>
+          <MenuItem value="Offered">Offered</MenuItem>
+          <MenuItem value="Rejected">Rejected</MenuItem>
         </TextField>
       </Grid>
     </Grid>

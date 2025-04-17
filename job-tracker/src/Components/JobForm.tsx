@@ -1,43 +1,29 @@
 import React, { useState } from 'react';
+import Grid from '@mui/material/Grid';
 import {
+  Paper,
+  Typography,
   TextField,
   Button,
-  Paper,
-  MenuItem,
-  Typography,
+  MenuItem
 } from '@mui/material';
-import Grid from '@mui/material/Grid';
-import type { JobApplication } from '../types/job';
 
-interface Props {
-  form: Omit<JobApplication, 'id'>;
-  setForm: React.Dispatch<React.SetStateAction<Omit<JobApplication, 'id'>>>;
-  handleAddApplication: () => void;
-}
-
-const JobForm: React.FC<Props> = ({ form, setForm, handleAddApplication }) => {
-  const [errors, setErrors] = useState({
-    company: false,
-    role: false,
-    status: false,
-    dateApplied: false,
+const JobForm = ({ onAdd }: any) => {
+  const [form, setForm] = useState({
+    company: '',
+    role: '',
+    status: '',
+    date: '',
+    notes: ''
   });
 
-  const validate = () => {
-    const newErrors = {
-      company: form.company.trim() === '',
-      role: form.role.trim() === '',
-      status: form.status.trim() === '',
-      dateApplied: form.dateApplied.trim() === '',
-    };
-    setErrors(newErrors);
-    return !Object.values(newErrors).some((err) => err);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const onSubmit = () => {
-    if (validate()) {
-      handleAddApplication();
-    }
+    onAdd(form);
+    setForm({ company: '', role: '', status: '', date: '', notes: '' });
   };
 
   return (
@@ -49,60 +35,56 @@ const JobForm: React.FC<Props> = ({ form, setForm, handleAddApplication }) => {
         <Grid item xs={12} sm={6}>
           <TextField
             label="Company"
-            fullWidth
+            name="company"
             value={form.company}
-            onChange={(e) => setForm((prev) => ({ ...prev, company: e.target.value }))}
-            error={errors.company}
-            helperText={errors.company ? 'Company is required' : ''}
+            onChange={handleChange}
+            fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             label="Role"
-            fullWidth
+            name="role"
             value={form.role}
-            onChange={(e) => setForm((prev) => ({ ...prev, role: e.target.value }))}
-            error={errors.role}
-            helperText={errors.role ? 'Role is required' : ''}
+            onChange={handleChange}
+            fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             select
             label="Status"
-            fullWidth
+            name="status"
             value={form.status}
-            onChange={(e) => setForm((prev) => ({ ...prev, status: e.target.value as JobApplication['status'] }))}
-            error={errors.status}
-            helperText={errors.status ? 'Status is required' : ''}
+            onChange={handleChange}
+            fullWidth
           >
-            {(['Applied', 'Interviewing', 'Rejected', 'Offer'] as JobApplication['status'][]).map((status) => (
-              <MenuItem key={status} value={status}>
-                {status}
-              </MenuItem>
-            ))}
+            <MenuItem value="Applied">Applied</MenuItem>
+            <MenuItem value="Interviewing">Interviewing</MenuItem>
+            <MenuItem value="Offered">Offered</MenuItem>
+            <MenuItem value="Rejected">Rejected</MenuItem>
           </TextField>
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             label="Date Applied"
             type="date"
-            fullWidth
+            name="date"
+            value={form.date}
+            onChange={handleChange}
             InputLabelProps={{ shrink: true }}
-            value={form.dateApplied}
-            onChange={(e) => setForm((prev) => ({ ...prev, dateApplied: e.target.value }))}
-            error={errors.dateApplied}
-            helperText={errors.dateApplied ? 'Date is required' : ''}
+            fullWidth
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
             label="Notes"
-            fullWidth
+            name="notes"
+            value={form.notes}
+            onChange={handleChange}
             multiline
             rows={4}
-            value={form.notes ?? ''}
-            onChange={(e) => setForm((prev) => ({ ...prev, notes: e.target.value }))}
+            fullWidth
           />
         </Grid>
         <Grid item xs={12}>
