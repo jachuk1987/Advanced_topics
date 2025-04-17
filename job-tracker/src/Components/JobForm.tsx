@@ -1,94 +1,116 @@
-import React, { useState } from 'react';
-import Grid from '@mui/material/Grid';
+import React from "react";
 import {
-  Paper,
-  Typography,
-  TextField,
   Button,
-  MenuItem
-} from '@mui/material';
+  Grid,
+  MenuItem,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
 
-const JobForm = ({ onAdd }: any) => {
-  const [form, setForm] = useState({
-    company: '',
-    role: '',
-    status: '',
-    date: '',
-    notes: ''
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+interface JobFormProps {
+  form: {
+    company: string;
+    role: string;
+    status: string;
+    date: string;
+    notes: string;
   };
+  setForm: React.Dispatch<
+    React.SetStateAction<{
+      company: string;
+      role: string;
+      status: string;
+      date: string;
+      notes: string;
+    }>
+  >;
+  handleAddApplication: () => void;
+}
 
-  const onSubmit = () => {
-    onAdd(form);
-    setForm({ company: '', role: '', status: '', date: '', notes: '' });
-  };
-
+const JobForm: React.FC<JobFormProps> = ({
+  form,
+  setForm,
+  handleAddApplication,
+}) => {
   return (
     <Paper elevation={3} style={{ padding: 16, marginBottom: 24 }}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography variant="h6">Add Job Application</Typography>
         </Grid>
+
         <Grid item xs={12} sm={6}>
           <TextField
+            fullWidth
             label="Company"
-            name="company"
             value={form.company}
-            onChange={handleChange}
-            fullWidth
+            onChange={(e) =>
+              setForm((prev) => ({ ...prev, company: e.target.value }))
+            }
           />
         </Grid>
+
         <Grid item xs={12} sm={6}>
           <TextField
+            fullWidth
             label="Role"
-            name="role"
             value={form.role}
-            onChange={handleChange}
-            fullWidth
+            onChange={(e) =>
+              setForm((prev) => ({ ...prev, role: e.target.value }))
+            }
           />
         </Grid>
+
         <Grid item xs={12} sm={6}>
           <TextField
+            fullWidth
             select
             label="Status"
-            name="status"
             value={form.status}
-            onChange={handleChange}
-            fullWidth
+            onChange={(e) =>
+              setForm((prev) => ({ ...prev, status: e.target.value }))
+            }
           >
             <MenuItem value="Applied">Applied</MenuItem>
-            <MenuItem value="Interviewing">Interviewing</MenuItem>
-            <MenuItem value="Offered">Offered</MenuItem>
+            <MenuItem value="Interview">Interview</MenuItem>
+            <MenuItem value="Offer">Offer</MenuItem>
             <MenuItem value="Rejected">Rejected</MenuItem>
           </TextField>
         </Grid>
+
         <Grid item xs={12} sm={6}>
           <TextField
+            fullWidth
             label="Date Applied"
             type="date"
-            name="date"
-            value={form.date}
-            onChange={handleChange}
             InputLabelProps={{ shrink: true }}
-            fullWidth
+            value={form.date}
+            onChange={(e) =>
+              setForm((prev) => ({ ...prev, date: e.target.value }))
+            }
           />
         </Grid>
+
         <Grid item xs={12}>
           <TextField
-            label="Notes"
-            name="notes"
-            value={form.notes}
-            onChange={handleChange}
-            multiline
-            rows={4}
             fullWidth
+            multiline
+            rows={3}
+            label="Notes"
+            value={form.notes}
+            onChange={(e) =>
+              setForm((prev) => ({ ...prev, notes: e.target.value }))
+            }
           />
         </Grid>
+
         <Grid item xs={12}>
-          <Button variant="contained" onClick={onSubmit}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleAddApplication}
+          >
             Add Application
           </Button>
         </Grid>
