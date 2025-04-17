@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import {
-  Grid,
   TextField,
   Button,
   Paper,
   MenuItem,
   Typography,
 } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import type { JobApplication } from '../types/job';
 
 interface Props {
