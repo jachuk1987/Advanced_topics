@@ -6,16 +6,14 @@ interface SearchBarProps {
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, setSearchTerm }) => {
-  return (
-    <TextField
-      label="Search by company or role"
-      fullWidth
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-      style={{ marginBottom: 24 }}
-    />
-  );
-};
+const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, setSearchTerm }) => (
+  <TextField
+    label="Search by company or role"
+    fullWidth
+    margin="normal"
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+  />
+);
 
 export default SearchBar;
