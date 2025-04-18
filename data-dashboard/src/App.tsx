@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Container, Typography, AppBar, Toolbar } from '@mui/material';
-import { Chart } from './components/Chart';
+import { Chart } from './components/ChartPanel';
 import { FilterBar } from './components/FilterBar';
-import { ToggleTheme } from './components/ToggleTheme';
+import { ToggleTheme } from './components/DarkModeToggle';
 import { useWebSocket } from './hooks/useWebSocket';
 import { ThemeContextProvider } from './context/ThemeContext';
 
