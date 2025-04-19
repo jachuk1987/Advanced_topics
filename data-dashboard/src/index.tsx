@@ -1,19 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import theme from './theme';
-import { ThemeContextProvider } from './context/ThemeContext';
 
-const root = ReactDOM.createRoot(document.getElementById('root')!);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <ThemeContextProvider>
-      <ThemeProvider theme={theme}>        
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
-    </ThemeContextProvider>
+    <App />
   </React.StrictMode>
 );
