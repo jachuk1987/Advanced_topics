@@ -1,12 +1,15 @@
-export const login = (username: string, password: string): string | null => {
-    if (username === 'admin' && password === 'admin') {
-      const token = 'dummy-token';
-      localStorage.setItem('token', token);
-      return token;
-    }
-    return null;
-  };
-  
-  export const logout = () => localStorage.removeItem('token');
-  export const isAuthenticated = () => !!localStorage.getItem('token');
-  
+export const isAuthenticated = (): boolean => {
+  return !!localStorage.getItem("authToken");
+};
+
+export const login = (username: string, password: string): boolean => {
+  if (username === "admin" && password === "admin") {
+    localStorage.setItem("authToken", "fake_token");
+    return true;
+  }
+  return false;
+};
+
+export const logout = () => {
+  localStorage.removeItem("authToken");
+};

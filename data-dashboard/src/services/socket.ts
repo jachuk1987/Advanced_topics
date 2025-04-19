@@ -1,4 +1,5 @@
-import { io } from 'socket.io-client';
+import { io } from "socket.io-client";
 
-const socket = io('http://localhost:4000'); // Your backend WebSocket endpoint
+const socket = io("ws://localhost:4000"); // Or your backend WebSocket URL
+
 export default socket;
