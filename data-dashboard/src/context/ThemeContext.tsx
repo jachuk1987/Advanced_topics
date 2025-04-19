@@ -1,41 +1,44 @@
-import React, { createContext, useMemo, useState, useContext } from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import theme from "../theme";
+import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 
-interface ThemeContextProps {
-  toggleColorMode: () => void;
-  mode: "light" | "dark";
+interface ThemeContextType {
+  toggleTheme: () => void;
+  mode: 'light' | 'dark';
 }
 
-const ColorModeContext = createContext<ThemeContextProps>({
-  toggleColorMode: () => {},
-  mode: "light",
-});
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const useThemeContext = () => useContext(ColorModeContext);
+export const useThemeContext = () => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useThemeContext must be used within a ThemeContextProvider');
+  }
+  return context;
+};
 
-const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [mode, setMode] = useState<"light" | "dark">("light");
+interface ThemeContextProviderProps {
+  children: ReactNode;
+}
 
-  const colorMode = useMemo(
-    () => ({
-      toggleColorMode: () => setMode((prev) => (prev === "light" ? "dark" : "light")),
+export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({ children }) => {
+  const [mode, setMode] = useState<'light' | 'dark'>('light');
+
+  const toggleTheme = () => {
+    setMode((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
+
+  const theme = createTheme({
+    palette: {
       mode,
-    }),
-    [mode]
-  );
-
-  const muiTheme = useMemo(() => createTheme(theme(mode)), [mode]);
+    },
+  });
 
   return (
-    <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={muiTheme}>
+    <ThemeContext.Provider value={{ toggleTheme, mode }}>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         {children}
       </ThemeProvider>
-    </ColorModeContext.Provider>
+    </ThemeContext.Provider>
   );
 };
-
-export default ThemeContextProvider;
