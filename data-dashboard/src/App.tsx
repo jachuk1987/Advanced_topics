@@ -7,7 +7,6 @@ import Overview from './components/Overview';
 import BarChartView from './components/BarChartView';
 import PieChartView from './components/PieChartView';
 import MapChartView from './components/MapChartView';
-import Overview from './components/Overview';
 import { ThemeProvider } from '@mui/material/styles';
 import useCustomTheme from './theme/useCustomTheme';
 
