@@ -1,1 +1,14 @@
-// Placeholder content for components/Auth/PrivateRoute.tsx
+import React from "react";
+import { Navigate } from "react-router-dom";
+
+interface PrivateRouteProps {
+  children: JSX.Element;
+}
+
+const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
+  const isAuthenticated = !!localStorage.getItem("authToken");
+
+  return isAuthenticated ? children : <Navigate to="/login" />;
+};
+
+export default PrivateRoute;
