@@ -24,10 +24,10 @@
 //     "src"
 //   ]
 // }
-
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsx"
   }
 }
