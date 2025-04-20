@@ -27,8 +27,7 @@
 
 {
   "compilerOptions": {
-    "jsx": "react-jsx",         // or "react" if using React 17
-    "lib": ["DOM", "ESNext"],   // ensure JSX.Element is found
-    "types": ["react", "react-dom"]
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   }
 }
