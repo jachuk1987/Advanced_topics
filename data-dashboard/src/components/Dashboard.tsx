@@ -28,26 +28,26 @@ const pieChartData = [
 // You can pass props to MapChart if needed
 const Dashboard: React.FC = () => {
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={12} md={6}>
+    <Grid container spacing={3} component="div">
+      <Grid item xs={12} md={6} component="div">
         <ChartCard title="Line Chart">
           <LineChartComp data={lineChartData} />
         </ChartCard>
       </Grid>
 
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6} component="div">
         <ChartCard title="Bar Chart">
           <BarChartComp data={barChartData} />
         </ChartCard>
       </Grid>
 
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6} component="div">
         <ChartCard title="Pie Chart">
           <PieChartComp data={pieChartData} />
         </ChartCard>
       </Grid>
 
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6} component="div">
         <ChartCard title="Map Chart">
           <MapChart />
         </ChartCard>

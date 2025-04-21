@@ -1,5 +1,7 @@
 import React from "react";
-import { List, ListItem, ListItemText, Drawer } from "@mui/material";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import { ListItemText, ListItemButton, Drawer } from "@mui/material";
 
 interface SidebarProps {
   onNavigate: (route: string) => void;
@@ -9,8 +11,12 @@ const Sidebar: React.FC<SidebarProps> = ({ onNavigate }) => {
   return (
     <Drawer variant="permanent" anchor="left">
       <List>
-        <ListItem button onClick={() => onNavigate("dashboard")}>Dashboard</ListItem>
-        <ListItem button onClick={() => onNavigate("overview")}>Overview</ListItem>
+        <ListItemButton onClick={() => onNavigate("dashboard")}>
+          <ListItemText primary="Dashboard" />
+        </ListItemButton>
+        <ListItemButton onClick={() => onNavigate("overview")}>
+          <ListItemText primary="Overview" />
+        </ListItemButton>
       </List>
     </Drawer>
   );
