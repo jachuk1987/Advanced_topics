@@ -1,5 +1,5 @@
 import React from "react";
-import Grid from "@mui/material/Grid";
+import Grid from '@mui/material/Grid';
 import LineChartComp from "../charts/LineChartComp";
 import BarChartComp from "../charts/BarChartComp";
 import PieChartComp from "../charts/PieChartComp";
