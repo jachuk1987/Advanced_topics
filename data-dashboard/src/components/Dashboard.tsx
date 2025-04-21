@@ -6,7 +6,6 @@ import PieChartComp from "../charts/PieChartComp";
 import MapChart from "../charts/MapChart";
 import ChartCard from "./ChartCard";
 
-// Dummy Data (Replace with actual WebSocket or API data)
 const lineChartData = [
   { name: "Jan", value: 400 },
   { name: "Feb", value: 300 },
@@ -25,29 +24,28 @@ const pieChartData = [
   { name: "Group C", value: 300 },
 ];
 
-// You can pass props to MapChart if needed
 const Dashboard: React.FC = () => {
   return (
-    <Grid container spacing={3} component="div">
-      <Grid item xs={12} md={6} component="div">
+    <Grid container spacing={3}>
+      <Grid item xs={12} md={6}>
         <ChartCard title="Line Chart">
           <LineChartComp data={lineChartData} />
         </ChartCard>
       </Grid>
 
-      <Grid item xs={12} md={6} component="div">
+      <Grid item xs={12} md={6}>
         <ChartCard title="Bar Chart">
           <BarChartComp data={barChartData} />
         </ChartCard>
       </Grid>
 
-      <Grid item xs={12} md={6} component="div">
+      <Grid item xs={12} md={6}>
         <ChartCard title="Pie Chart">
           <PieChartComp data={pieChartData} />
         </ChartCard>
       </Grid>
 
-      <Grid item xs={12} md={6} component="div">
+      <Grid item xs={12} md={6}>
         <ChartCard title="Map Chart">
           <MapChart />
         </ChartCard>
