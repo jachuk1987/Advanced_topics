@@ -1,12 +1,12 @@
 import React from "react";
-import Grid from '@mui/material/Grid';
+import Grid from "@mui/material/Grid";
 import LineChartComp from "../charts/LineChartComp";
 import BarChartComp from "../charts/BarChartComp";
 import PieChartComp from "../charts/PieChartComp";
 import MapChart from "../charts/MapChart";
 import ChartCard from "./ChartCard";
 
-// Dummy chart data (replace with real-time or fetched data)
+// Dummy Data (Replace with actual WebSocket or API data)
 const lineChartData = [
   { name: "Jan", value: 400 },
   { name: "Feb", value: 300 },
@@ -14,9 +14,9 @@ const lineChartData = [
 ];
 
 const barChartData = [
-  { name: "Q1", value: 600 },
-  { name: "Q2", value: 800 },
-  { name: "Q3", value: 700 },
+  { name: "Product A", value: 240 },
+  { name: "Product B", value: 456 },
+  { name: "Product C", value: 139 },
 ];
 
 const pieChartData = [
@@ -25,12 +25,7 @@ const pieChartData = [
   { name: "Group C", value: 300 },
 ];
 
-const mapChartData = [
-  { region: "USA", value: 1000 },
-  { region: "India", value: 800 },
-  { region: "Germany", value: 600 },
-];
-
+// You can pass props to MapChart if needed
 const Dashboard: React.FC = () => {
   return (
     <Grid container spacing={3}>
@@ -54,7 +49,7 @@ const Dashboard: React.FC = () => {
 
       <Grid item xs={12} md={6}>
         <ChartCard title="Map Chart">
-          <MapChart data={mapChartData} />
+          <MapChart />
         </ChartCard>
       </Grid>
     </Grid>
