@@ -28,6 +28,12 @@ const pieChartData = [
 const Dashboard: React.FC = () => {
   return (
     <Grid container spacing={3}>
+      {/* Overview Cards */}
+      <Grid item xs={12}>
+        <Overview />
+      </Grid>
+
+      {/* Charts */}
       <Grid item xs={12} md={6}>
         <ChartCard title="Line Chart">
           <LineChartComp data={lineChartData} />
