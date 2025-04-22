@@ -5,6 +5,7 @@ import BarChartComp from "../charts/BarChartComp";
 import PieChartComp from "../charts/PieChartComp";
 import MapChart from "../charts/MapChart";
 import ChartCard from "./ChartCard";
+import Overview from "./Overview";
 
 const lineChartData = [
   { name: "Jan", value: 400 },
