@@ -1,5 +1,6 @@
 import React from "react";
-import { Grid, MenuItem, TextField } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import { MenuItem, TextField } from "@mui/material";
 
 interface FilterBarProps {
   filter: string;
