@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Dashboard from './components/Dashboard';
 import Login from './components/Auth/Login';
 import PrivateRoute from './components/Auth/PrivateRoute';
+
 import { ThemeProvider, useThemeContext } from './context/ThemeContext';
 import { getTheme } from './theme';
 
