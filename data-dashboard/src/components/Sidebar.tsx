@@ -14,6 +14,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onNavigate }) => {
         <ListItemButton onClick={() => onNavigate("dashboard")}>
           <ListItemText primary="Dashboard" />
         </ListItemButton>
+        
         <ListItemButton onClick={() => onNavigate("overview")}>
           <ListItemText primary="Overview" />
         </ListItemButton>
