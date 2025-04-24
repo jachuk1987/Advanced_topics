@@ -5,7 +5,7 @@ import {
 
 interface BarChartProps {
   data: { name: string; value: number }[];
-}
+};
 
 const BarChartComp: React.FC<BarChartProps> = ({ data }) => {
   return (
