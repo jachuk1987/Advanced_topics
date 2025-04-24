@@ -3,7 +3,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "rec
 
 interface LineChartProps {
   data: { name: string; value: number }[];
-}
+};
 
 const LineChartComp: React.FC<LineChartProps> = ({ data }) => {
   return (
