@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from "react";
 interface ThemeContextProps {
   darkMode: boolean;
   toggleTheme: () => void;
-}
+};
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
