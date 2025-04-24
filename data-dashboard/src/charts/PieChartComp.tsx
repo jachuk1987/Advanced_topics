@@ -5,7 +5,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 interface PieChartProps {
   data: { name: string; value: number }[];
-}
+};
 
 const PieChartComp: React.FC<PieChartProps> = ({ data }) => (
   <ResponsiveContainer width="100%" height={300}>
