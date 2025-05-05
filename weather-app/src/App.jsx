@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import Navbar from "../src/components/Navbar";
 import MainWeatherCard from "../src/components/MainWeatherCard";
 import FiveDayForecast from "../src/components/FiveDay";
-import TodayHighlights from "../src/components/todayhighlights";
+import TodayHighlights from "../src/components/TodayHighlights";
 
 import axios from "axios";
 
