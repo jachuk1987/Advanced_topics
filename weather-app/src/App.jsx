@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import Navbar from "../src/components/navbar";
+import Navbar from "../src/components/Navbar";
 import MainWeatherCard from "../src/components/MainWeatherCard";
 import FiveDayForecast from "../src/components/fiveday";
 import TodayHighlights from "../src/components/todayhighlights";
