@@ -52,4 +52,3 @@ const MainWeatherCard = ({ weatherData }) => {
   };
   
   export default MainWeatherCard;
-  
