@@ -14,42 +14,41 @@ const MainWeatherCard = ({ weatherData }) => {
 
   const currentDate = timestamp
     ? new Date(timestamp * 1000).toLocaleDateString('en-US', {
-        weekday: 'long',
-        day: 'numeric',
-        month: 'short',
-      })
+      weekday: 'long',
+      day: 'numeric',
+      month: 'short',
+    })
     : "Date not available";
 
-    const renderTemperatureIcon = () => {
-      if (temperatureCelsius > 23) {
-        return <WbSunnyIcon style={{ marginLeft: '10px', fontSize: '3rem', color: 'orange' }} />;
-      } else if (temperatureCelsius < 10) {
-        return <AcUnitIcon style={{ marginLeft: '10px', fontSize: '3rem', color: 'blue' }} />;
-      } else {
-        return <CloudIcon style={{ marginLeft: '10px', fontSize: '3rem', color: 'gray' }} />;
-      }
-    };
+  const renderTemperatureIcon = () => {
+    if (temperatureCelsius > 23) {
+      return <WbSunnyIcon style={{ marginLeft: '10px', fontSize: '3rem', color: 'orange' }} />;
+    } else if (temperatureCelsius < 10) {
+      return <AcUnitIcon style={{ marginLeft: '10px', fontSize: '3rem', color: 'blue' }} />;
+    } else {
+      return <CloudIcon style={{ marginLeft: '10px', fontSize: '3rem', color: 'gray' }} />;
+    }
+  };
 
-    return (
-      <div style={{ backgroundColor: '#4B5563', color: 'white', borderRadius: '0.5rem',width:'160px',padding:'30px' }}>
-        <div style={{fontSize:'20px'}}>Now</div>
-      <div style={{display: 'flex', alignItems: 'center', fontSize: '35px', fontWeight: 'bold'  }}>
+  return (
+    <div style={{ backgroundColor: '#4B5563', color: 'white', borderRadius: '0.5rem', width: '160px', padding: '30px' }}>
+      <div style={{ fontSize: '20px' }}>Now</div>
+      <div style={{ display: 'flex', alignItems: 'center', fontSize: '35px', fontWeight: 'bold' }}>
         {temperatureCelsius}°c
         {renderTemperatureIcon()}
-        
-        </div>
-      <div style={{ fontSize: '15px', marginTop: '8px',fontWeight:'50' }}>  {weatherDescription}</div>
+
+      </div>
+      <div style={{ fontSize: '15px', marginTop: '8px', fontWeight: '50' }}>  {weatherDescription}</div>
       <div style={{ marginTop: '1rem' }}>
-      <div style={{display:'flex',alignItems:'center'}}>
-       <CalendarMonthIcon/> 
-        {currentDate}</div>
-      <div style={{marginTop:'4px',display:'flex',alignItems:'center'}}>
-      <LocationOnIcon/>
-        {cityName}, {countryName}</div>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <CalendarMonthIcon />
+          {currentDate}</div>
+        <div style={{ marginTop: '4px', display: 'flex', alignItems: 'center' }}>
+          <LocationOnIcon />
+          {cityName}, {countryName}</div>
       </div>
-      </div>
-    );
-  };
-  
-  export default MainWeatherCard;
-  
+    </div>
+  );
+};
+
+export default MainWeatherCard;
