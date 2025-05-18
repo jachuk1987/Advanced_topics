@@ -10,10 +10,12 @@ const Navbar = ({ onSearch }) => {
   const [searchCity, setSearchCity] = useState("");
 
   const handleSearchClick = () => {
-    if (searchCity.trim()) {
-      onSearch(searchCity);
-    }
-  };
+  if (searchCity.trim()) {
+    onSearch(searchCity);
+    setSearchCity("");
+  }
+};
+
 
   return (
     <nav
