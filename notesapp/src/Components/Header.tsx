@@ -3,7 +3,11 @@ import { AppBar, Toolbar} from "@mui/material";
 
 const Header: React.FC = () => {
     return (
-        <div>Hello</div>
+        <AppBar>
+            <Toolbar>
+                
+            </Toolbar>
+        </AppBar>
     )
 }
 
