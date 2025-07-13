@@ -6,3 +6,5 @@ const CreateNote: React.FC = () => {
         <div>Welcome to CreateNote</div>
     )
 }
+
+export default CreateNote;
