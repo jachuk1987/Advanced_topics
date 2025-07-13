@@ -1,11 +1,11 @@
 
 import { AppBar, Toolbar} from "@mui/material";
-import { logo } 
+import { logo } from "../constants/constant"
 const Header: React.FC = () => {
     return (
         <AppBar color="transparent">
             <Toolbar>
-                <img src={logo} alt="logo"
+                <img src={logo} alt="logo" />
             </Toolbar>
         </AppBar>
     )
