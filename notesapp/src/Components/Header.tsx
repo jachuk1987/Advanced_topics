@@ -6,7 +6,7 @@ const Header: React.FC = () => {
         <AppBar color="transparent">
             <Toolbar>
                 <img src={logo} alt="logo" style={{width: 30, marginRight: 10}} />
-                <Typography>Everynote</Typography>
+                <Typography>EverNote</Typography>
             </Toolbar>
         </AppBar>
     )
