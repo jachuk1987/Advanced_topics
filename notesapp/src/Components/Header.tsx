@@ -1,11 +1,11 @@
 
 import { AppBar, Toolbar} from "@mui/material";
-
+import { logo } 
 const Header: React.FC = () => {
     return (
         <AppBar color="transparent">
             <Toolbar>
-                Welcome to TypeScript
+                <img src={logo} alt="logo"
             </Toolbar>
         </AppBar>
     )
