@@ -10,7 +10,7 @@ const CreateNote: React.FC = () => {
             />
 
             <InputBase
-                placeholder="Title"
+                placeholder="Details"
             />            
         </div>
     )
