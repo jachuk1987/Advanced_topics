@@ -2,7 +2,15 @@ import styled from "@emotion/styled";
 import { Box, Button, InputBase } from "@mui/material";
 
 const Container = styled(Box)`
-
+    & > * {
+        margin-right: 20px;
+    }
+    & > div > input[type="text] {
+        border-bottom: 1px solid #111111;
+        opacity: 0.4;
+        width: 300px;
+        padding-right: 25px;
+    }
 `
 
 const CreateNote: React.FC = () => {
