@@ -8,10 +8,11 @@ const CreateNote: React.FC = () => {
             <InputBase
                 placeholder="Title"
             />
-
+            <Box component="span">30</Box>
             <InputBase
                 placeholder="Details"
-            />            
+            />
+            <Box component="span">30</Box>
         </Box>
     )
 }
