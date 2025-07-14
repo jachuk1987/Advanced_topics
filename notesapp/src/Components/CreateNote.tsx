@@ -7,7 +7,7 @@ const Container = styled(Box)`
 
 const CreateNote: React.FC = () => {
     return (
-        <Box>
+        <Container>
             <InputBase
                 placeholder="Title"
             />
@@ -22,7 +22,7 @@ const CreateNote: React.FC = () => {
                 placeholder="Choose color"
             />
             <Button variant="outlined">Create</Button>
-        </Box>
+        </Container>
     )
 }
 
