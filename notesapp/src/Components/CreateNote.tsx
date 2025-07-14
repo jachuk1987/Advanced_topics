@@ -1,9 +1,12 @@
+import { InputBase } from "@mui/material";
 
 
 
 const CreateNote: React.FC = () => {
     return (
-        <div>Welcome to CreateNote</div>
+        <div>
+            <InputBase />
+        </div>
     )
 }
 
