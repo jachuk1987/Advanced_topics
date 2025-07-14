@@ -1,10 +1,10 @@
-import { InputBase } from "@mui/material";
+import { Box, InputBase } from "@mui/material";
 
 
 
 const CreateNote: React.FC = () => {
     return (
-        <div>
+        <Box>
             <InputBase
                 placeholder="Title"
             />
@@ -12,7 +12,7 @@ const CreateNote: React.FC = () => {
             <InputBase
                 placeholder="Details"
             />            
-        </div>
+        </Box>
     )
 }
 
