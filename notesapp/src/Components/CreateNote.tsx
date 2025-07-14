@@ -1,6 +1,9 @@
-import { Box, InputBase } from "@mui/material";
+import styled from "@emotion/styled";
+import { Box, Button, InputBase } from "@mui/material";
 
+const Container = styled(Box)`
 
+`
 
 const CreateNote: React.FC = () => {
     return (
@@ -16,7 +19,9 @@ const CreateNote: React.FC = () => {
             <InputBase
                 type="color"
                 defaultValue={"#F5F5F5"}
+                placeholder="Choose color"
             />
+            <Button variant="outlined">Create</Button>
         </Box>
     )
 }
