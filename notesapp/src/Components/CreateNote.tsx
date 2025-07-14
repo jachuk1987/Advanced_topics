@@ -12,7 +12,11 @@ const CreateNote: React.FC = () => {
             <InputBase
                 placeholder="Details"
             />
-            <Box component="span">30</Box>
+            <Box component="span">50</Box>
+            <InputBase
+                type="color"
+                defaultValue={"#F5F5F5"}
+            />
         </Box>
     )
 }
