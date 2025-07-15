@@ -11,6 +11,8 @@ const Container = styled(Box)`
         width: 300px;
         padding-right: 25px;
     }
+    & > div > input[type="color"]
+
 `
 
 const CreateNote: React.FC = () => {
