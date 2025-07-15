@@ -12,6 +12,7 @@ const Container = styled(Box)`
         padding-right: 25px;
     }
     & > div > input[type="color"]
+        width: 40px;
 
 `
 
