@@ -3,7 +3,7 @@ import { Box, Button, InputBase } from "@mui/material";
 
 const Container = styled(Box)`
     & > * {
-        margin-right: 20px 20px ;
+        margin-right: 20px 20px 20px;
     }
     & > div > input[type="text] {
         border-bottom: 1px solid #111111;
