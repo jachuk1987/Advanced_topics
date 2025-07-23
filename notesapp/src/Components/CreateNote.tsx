@@ -15,6 +15,7 @@ const Container = styled(Box)`
         width: 40px;
         height: 30px;
         position: relative;
+        bottom: -10px;
     }
 `
 
