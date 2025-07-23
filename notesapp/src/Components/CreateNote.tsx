@@ -17,6 +17,9 @@ const Container = styled(Box)`
         position: relative;
         bottom: -10px;
     }
+    & > span {
+    
+    }
 `
 
 const CreateNote: React.FC = () => {
