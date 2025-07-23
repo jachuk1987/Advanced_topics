@@ -7,8 +7,8 @@ function App() {
   return (
     <>
       <Header />
-      <Box>
-      <CreateNote />
+      <Box style={{ padding: 20 }}>
+        <CreateNote />
       </Box>
     </>
   );
