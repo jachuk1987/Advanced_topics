@@ -18,7 +18,9 @@ const Container = styled(Box)`
         bottom: -10px;
     }
     & > span {
-    
+        font-size: 10px;
+        position: relative;
+        
     }
 `
 
