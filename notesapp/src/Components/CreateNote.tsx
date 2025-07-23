@@ -20,7 +20,7 @@ const Container = styled(Box)`
     & > span {
         font-size: 10px;
         position: relative;
-        
+        right: 40px;
     }
 `
 
