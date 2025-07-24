@@ -42,7 +42,8 @@ interface NoteObject {
 }
 
 const CreateNote: React.FC = () => {
-    const [note, setNote] = useState();
+    const [note, setNote] = useState<NoteObject>(defaultObj);
+
     const onValueChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 
     }
