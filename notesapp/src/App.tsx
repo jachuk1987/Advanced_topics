@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import CreateNote from "./Components/CreateNote";
 import Header from "./Components/Header";
+import Notes from "./Components/Notes";
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
       <Header />
       <Box style={{ padding: 20 }}>
         <CreateNote />
+        <Notes />
       </Box>
     </>
   );
