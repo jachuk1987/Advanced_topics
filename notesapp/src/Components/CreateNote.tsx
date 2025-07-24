@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Box, Button, InputBase } from "@mui/material";
+import { title } from "process";
 import { useState } from "react";
 
 const Container = styled(Box)`
@@ -24,6 +25,12 @@ const Container = styled(Box)`
         right: 40px;
     }
 `
+const defaultObj = {
+    id: 0,
+    title: '',
+    details: '',
+    color: '',
+}
 
 const CreateNote: React.FC = () => {
     const [note, setNote] = useState();
