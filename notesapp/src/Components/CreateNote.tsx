@@ -30,7 +30,15 @@ const defaultObj = {
     title: '',
     details: '',
     color: '',
-    date: (new Date().toLocaleString()).toString()
+    date: (new Date().toLocaleString()).toString(),
+}
+
+interface NoteObject {
+    id: number,
+    title: string,
+    details: string,
+    color: string,
+    date: string
 }
 
 const CreateNote: React.FC = () => {
