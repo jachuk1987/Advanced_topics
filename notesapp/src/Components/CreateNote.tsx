@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Box, Button, InputBase } from "@mui/material";
+import { useState } from "react";
 
 const Container = styled(Box)`
     & > * {
@@ -25,7 +26,7 @@ const Container = styled(Box)`
 `
 
 const CreateNote: React.FC = () => {
-
+    const [note, setNote] = useState();
     const onValueChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 
     }
