@@ -44,6 +44,7 @@ const CreateNote: React.FC = () => {
                 defaultValue={"#F5F5F5"}
                 placeholder="Choose color"
                 onChange={(e) => onValueChange(e)}
+                name="color"
 
             />
             <Button variant="outlined">Create</Button>
