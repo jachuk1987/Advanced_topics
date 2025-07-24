@@ -29,16 +29,22 @@ const CreateNote: React.FC = () => {
         <Container>
             <InputBase
                 placeholder="Title"
+                onChange={(e) => onValueChange(e)}
+                name="title"
             />
             <Box component="span">30</Box>
             <InputBase
                 placeholder="Details"
+                onChange={(e) => onValueChange(e)}
+                name="details"
             />
             <Box component="span">50</Box>
             <InputBase
                 type="color"
                 defaultValue={"#F5F5F5"}
                 placeholder="Choose color"
+                onChange={(e) => onValueChange(e)}
+
             />
             <Button variant="outlined">Create</Button>
         </Container>
