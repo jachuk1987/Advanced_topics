@@ -25,6 +25,11 @@ const Container = styled(Box)`
 `
 
 const CreateNote: React.FC = () => {
+
+    const onValueChange = (e) => {
+
+    }
+
     return (
         <Container>
             <InputBase
