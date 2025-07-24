@@ -26,7 +26,7 @@ const Container = styled(Box)`
 
 const CreateNote: React.FC = () => {
 
-    const onValueChange = (e) => {
+    const onValueChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 
     }
 
