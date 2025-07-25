@@ -7,13 +7,17 @@ import { NoteObject } from "./models/note";
 
 function App() {
 
-  const [notes, setNotes] = useState<NoteObject>([]);
+  const [notes, setNotes] = useState<NoteObject[]>([]);
+
+  const addNotes = (note: NoteObject) => {
+    setNotes([ note, ...notes ]);
+  }
 
   return (
     <>
       <Header />
       <Box style={{ padding: 20 }}>
-        <CreateNote />
+        <CreateNote addNotes={addNotes}/>
         <Notes />
       </Box>
     </>

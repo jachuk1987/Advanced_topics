@@ -34,7 +34,11 @@ const defaultObj = {
     date: (new Date().toLocaleString()).toString(),
 }
 
-const CreateNote: React.FC = () => {
+interface ICreateNoteProps {
+    addNotes: (note: NoteObject) => void
+}
+
+const CreateNote: React.FC<ICreateNoteProps> = ({ addNotes }) => {
     const [note, setNote] = useState<NoteObject>(defaultObj);
 
     const onValueChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -43,7 +47,7 @@ const CreateNote: React.FC = () => {
     }
 
     const onCreateNote = () => {
-        
+        addNotes({ ...note, id: '1122'})
     }
 
     return (
