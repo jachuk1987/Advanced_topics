@@ -42,6 +42,10 @@ const CreateNote: React.FC = () => {
         setNote({ ...note, [e.target.name]: e.target.value })
     }
 
+    const onCreateNote = () => {
+        
+    }
+
     return (
         <Container>
             <InputBase
