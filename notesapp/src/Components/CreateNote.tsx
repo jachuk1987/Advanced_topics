@@ -38,7 +38,7 @@ const CreateNote: React.FC = () => {
     const [note, setNote] = useState<NoteObject>(defaultObj);
 
     const onValueChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        
+
         setNote({ ...note, [e.target.name]: e.target.value })
     }
 
@@ -64,7 +64,11 @@ const CreateNote: React.FC = () => {
                 name="color"
 
             />
-            <Button variant="outlined">Create</Button>
+            <Button
+                variant="outlined"
+                onClick={() => onCreateNote()}
+            >
+                Create</Button>
         </Container>
     )
 }
