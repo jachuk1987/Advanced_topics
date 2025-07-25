@@ -3,10 +3,11 @@ import CreateNote from "./Components/CreateNote";
 import Header from "./Components/Header";
 import Notes from "./Components/Notes";
 import { useState } from "react";
+import { NoteObject } from "./models/note";
 
 function App() {
 
-  const [notes, setNotes] = useState();
+  const [notes, setNotes] = useState<NoteObject>([]);
 
   return (
     <>
