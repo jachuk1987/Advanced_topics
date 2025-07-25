@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Box, Button, InputBase } from "@mui/material";
 import { title } from "process";
 import { useState } from "react";
+import { NoteObject } from "../models/note";
 
 const Container = styled(Box)`
     & > * {
