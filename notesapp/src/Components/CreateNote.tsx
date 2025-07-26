@@ -41,6 +41,7 @@ interface ICreateNoteProps {
 
 const CreateNote: React.FC<ICreateNoteProps> = ({ addNotes }) => {
     const [note, setNote] = useState<NoteObject>(defaultObj);
+    const [error, setError] = useState('');
 
     const onValueChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 
