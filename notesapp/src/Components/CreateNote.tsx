@@ -83,7 +83,7 @@ const CreateNote: React.FC<ICreateNoteProps> = ({ addNotes }) => {
                 onClick={() => onCreateNote()}
             >
                 Create</Button>
-                <Typography>{error}</Typography>
+                { error && <Typography>{error}</Typography> }
         </Container>
     )
 }
