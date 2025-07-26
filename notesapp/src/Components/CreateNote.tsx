@@ -49,6 +49,10 @@ const CreateNote: React.FC<ICreateNoteProps> = ({ addNotes }) => {
     }
 
     const onCreateNote = () => {
+        if (!note.title && !note.details) {
+            setError('All fields are mandatory');
+            return;
+        }
         addNotes({ ...note, id: uuid() })
     }
 
@@ -79,7 +83,7 @@ const CreateNote: React.FC<ICreateNoteProps> = ({ addNotes }) => {
                 onClick={() => onCreateNote()}
             >
                 Create</Button>
-                <Typography></Typography>
+                <Typography>{error}</Typography>
         </Container>
     )
 }
