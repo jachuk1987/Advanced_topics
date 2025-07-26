@@ -26,7 +26,15 @@ const Container = styled(Box)`
         position: relative;
         right: 40px;
     }
+`;
+
+const Error = styled(Typography)`
+    background: red;
+    color: #fff;
+    padding: 10px;
+    width: 50%;
 `
+
 const defaultObj = {
     id: 0,
     title: '',
@@ -44,7 +52,9 @@ const CreateNote: React.FC<ICreateNoteProps> = ({ addNotes }) => {
     const [error, setError] = useState<string>('');
 
     const onValueChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-
+        if (error) {
+            setError('');
+        }
         setNote({ ...note, [e.target.name]: e.target.value })
     }
 
@@ -54,6 +64,7 @@ const CreateNote: React.FC<ICreateNoteProps> = ({ addNotes }) => {
             return;
         }
         addNotes({ ...note, id: uuid() })
+        setNote(defaultObj);
     }
 
     return (
@@ -83,7 +94,7 @@ const CreateNote: React.FC<ICreateNoteProps> = ({ addNotes }) => {
                 onClick={() => onCreateNote()}
             >
                 Create</Button>
-                { error && <Typography>{error}</Typography> }
+            {error && <Error>{error}</Error>}
         </Container>
     )
 }
