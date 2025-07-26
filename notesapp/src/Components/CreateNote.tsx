@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box, Button, InputBase } from "@mui/material";
+import { Box, Button, InputBase, Typography } from "@mui/material";
 import { title } from "process";
 import { useState } from "react";
 import { NoteObject } from "../models/note";
@@ -78,6 +78,7 @@ const CreateNote: React.FC<ICreateNoteProps> = ({ addNotes }) => {
                 onClick={() => onCreateNote()}
             >
                 Create</Button>
+                <Typography></Typography>
         </Container>
     )
 }
