@@ -3,6 +3,7 @@ import { Box, Button, InputBase } from "@mui/material";
 import { title } from "process";
 import { useState } from "react";
 import { NoteObject } from "../models/note";
+import { v4 as uuid } from "uuid";
 
 const Container = styled(Box)`
     & > * {
