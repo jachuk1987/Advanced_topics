@@ -48,7 +48,7 @@ const CreateNote: React.FC<ICreateNoteProps> = ({ addNotes }) => {
     }
 
     const onCreateNote = () => {
-        addNotes({ ...note, id: '1122' })
+        addNotes({ ...note, id: uuid() })
     }
 
     return (
