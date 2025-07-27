@@ -1,7 +1,8 @@
 import { Box, Typography } from "@mui/material";
+import { NoteObject } from "../models/note";
 
 interface INotesProps {
-    notes: 
+    notes: NoteObject[]
 }
 
 
