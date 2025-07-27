@@ -5,7 +5,7 @@ const Notes: React.FC = () => {
 
     return (
         <Box>
-            <Typography>Notes</Typography>
+            <Typography variant="h5">Notes</Typography>
         </Box>
     )
 }
