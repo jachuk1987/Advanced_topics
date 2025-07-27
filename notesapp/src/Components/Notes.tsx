@@ -1,14 +1,14 @@
 import { Box, Typography } from "@mui/material";
 
 
-const Notes: React.FC = () => {
+const Notes: React.FC = (notes) => {
 
     return (
         <Box>
             <Typography variant="h5">Notes</Typography>
             <Box>
                 {
-                    
+
                 }
             </Box>
         </Box>

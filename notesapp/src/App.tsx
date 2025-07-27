@@ -18,7 +18,7 @@ function App() {
       <Header />
       <Box style={{ padding: 20 }}>
         <CreateNote addNotes={addNotes}/>
-        <Notes />
+        <Notes notes={notes}/>
       </Box>
     </>
   );
