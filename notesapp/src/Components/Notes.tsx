@@ -1,5 +1,9 @@
 import { Box, Typography } from "@mui/material";
 
+interface INotesProps {
+    notes: 
+}
+
 
 const Notes: React.FC = ({ notes }) => {
 
@@ -9,7 +13,7 @@ const Notes: React.FC = ({ notes }) => {
             <Box>
                 {
                     notes.map(note => (
-                        
+
                     ))
                 }
             </Box>
