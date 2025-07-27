@@ -10,15 +10,15 @@ function App() {
   const [notes, setNotes] = useState<NoteObject[]>([]);
 
   const addNotes = (note: NoteObject) => {
-    setNotes([ note, ...notes ]);
+    setNotes([note, ...notes]);
   }
 
   return (
     <>
       <Header />
       <Box style={{ padding: 20 }}>
-        <CreateNote addNotes={addNotes}/>
-        <Notes notes={notes}/>
+        <CreateNote addNotes={addNotes} />
+        <Notes notes={notes} />
       </Box>
     </>
   );
