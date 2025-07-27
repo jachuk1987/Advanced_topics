@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 
 
-const Notes: React.FC = (notes) => {
+const Notes: React.FC = ({ notes }) => {
 
     return (
         <Box>
