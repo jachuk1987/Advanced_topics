@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 
 
 
@@ -5,7 +6,9 @@
 const Notes: React.FC = () => {
 
     return (
-        <div>Notes</div>
+        <Box>
+            
+        </Box>
     )
 }
 
