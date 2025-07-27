@@ -8,7 +8,9 @@ const Notes: React.FC = ({ notes }) => {
             <Typography variant="h5">Notes</Typography>
             <Box>
                 {
-
+                    notes.map(note => (
+                        
+                    ))
                 }
             </Box>
         </Box>
