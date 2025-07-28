@@ -73,12 +73,14 @@ const CreateNote: React.FC<ICreateNoteProps> = ({ addNotes }) => {
                 placeholder="Title"
                 onChange={(e) => onValueChange(e)}
                 name="title"
+                value={note.title}
             />
             <Box component="span">30</Box>
             <InputBase
                 placeholder="Details"
                 onChange={(e) => onValueChange(e)}
                 name="details"
+                value={note.details}
             />
             <Box component="span">50</Box>
             <InputBase
