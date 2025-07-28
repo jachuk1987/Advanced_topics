@@ -5,7 +5,7 @@ interface INotesProps {
     note: NoteObject
 }
 
-const Note: React.FC = ( note ) => {
+const Note: React.FC<INotesProps> = ( note ) => {
 
     return (
         <div>Hello</div>
