@@ -1,3 +1,4 @@
+import { Card, CardContent } from "@mui/material";
 import { NoteObject } from "../models/note";
 
 
@@ -8,7 +9,11 @@ interface INotesProps {
 const Note: React.FC<INotesProps> = ( note ) => {
 
     return (
-        <div>Hello</div>
+        <Card>
+            <CardContent>
+                
+            </CardContent>
+        </Card>
     )
 }
 
