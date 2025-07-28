@@ -4,7 +4,7 @@
 
 const Note: React.FC = () => {
 
-    return(
+    return (
         <div>Hello</div>
     )
 }
