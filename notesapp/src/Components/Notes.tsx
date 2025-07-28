@@ -6,7 +6,7 @@ interface INotesProps {
 }
 
 
-const Notes: React.FC = ({ notes }) => {
+const Notes: React.FC<INotesProps> = ({ notes }) => {
 
     return (
         <Box>
