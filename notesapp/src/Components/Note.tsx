@@ -28,7 +28,7 @@ const Note: React.FC<INotesProps> = ({ note, deleteNote }) => {
           <Typography variant="h6">{note.title}</Typography>
           <Typography variant="body2">{note.details}</Typography>
           <Typography variant="caption">{note.date}</Typography>
-          <Button variant="outlined" onClick={() => deleteNote(note.id) }>Delete</Button>
+          <Button variant="outlined" onClick={() => deleteNote(note.id)}>Delete</Button>
         </Box>
       </CardContent>
     </StyledCard>
