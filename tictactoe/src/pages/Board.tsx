@@ -1,4 +1,5 @@
 import { Grid } from 'semantic-ui-react';
+import Square from '../Components/Square';
 
 const Board: React.FC = () => {
     return (
@@ -8,7 +9,7 @@ const Board: React.FC = () => {
                 {
                     Array(9).fill(null).map((val, index) => (
                         <Grid.Column className='board-columns'>
-                            Hello
+                            <Square />
                         </Grid.Column>
                     ))
                 }
