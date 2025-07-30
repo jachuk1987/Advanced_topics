@@ -7,7 +7,7 @@ const Board: React.FC = () => {
             <Grid columns={3} centered>
                 {
                     Array(9).fill(null).map((val, index) => (
-                        <Grid.Column>
+                        <Grid.Column className='board-columns'>
                             Hello
                         </Grid.Column>
                     ))
