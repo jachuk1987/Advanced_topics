@@ -10,11 +10,13 @@ const Board: React.FC = () => {
     const [squares, setSquares] = useState(Array(9).fill(null));
 
     const setSquareValue = (index: number) => {
-        squares.map((value, i) => {
+        const data = squares.map((value, i) => {
             if (index === i) {
                 return currentPlayer;
             }
+            return value;
         })
+        setSquares(data);
     }
 
     return (
