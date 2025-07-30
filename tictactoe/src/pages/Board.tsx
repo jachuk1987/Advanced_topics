@@ -1,15 +1,32 @@
 import { Grid } from 'semantic-ui-react';
 import Square from '../Components/Square';
+import { useState } from 'react';
 
 const Board: React.FC = () => {
+
+    const activePlayer = (Math.random() + 1) === 1 ? 'X' : 'O';
+
+    const [currentPlayer, setCurrentPlayer] = useState<'X' | 'O'>(activePlayer);
+    const [squares, setSquares] = useState(Array(9).fill(null));
+
+    const setSquareValue = (index: number) => {
+        squares.map((value, i) => {
+            if (index === i) {
+                return currentPlayer;
+            }
+        })
+    }
+
     return (
         <div className='board-wrapper'>
-            <p>Hey X, It's your Turn.</p>
+            <p>Hey {currentPlayer}, It's your Turn.</p>
             <Grid columns={3} centered>
                 {
                     Array(9).fill(null).map((val, index) => (
                         <Grid.Column className='board-columns'>
-                            <Square />
+                            <Square
+                                onClick={() => setSquareValue(index)}
+                            />
                         </Grid.Column>
                     ))
                 }

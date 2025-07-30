@@ -9,3 +9,9 @@
   border: 1px solid #ccc;
   padding: 0 !important;
 }
+
+.board-square {
+  height: 100%;
+  width: 100%;
+  font-size: 80px;
+}
