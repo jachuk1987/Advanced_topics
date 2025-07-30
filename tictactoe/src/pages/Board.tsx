@@ -2,7 +2,7 @@ import { Grid } from 'semantic-ui-react';
 
 const Board: React.FC = () => {
     return (
-        <div>
+        <div className='board-wrapper'>
             <p>Hey X, It's your Turn.</p>
             <Grid columns={3} centered>
                 {
