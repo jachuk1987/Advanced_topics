@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const Board: React.FC = () => {
 
-    const activePlayer = (Math.random() + 1) === 1 ? 'X' : 'O';
+    const activePlayer = Math.round(Math.random() + 1) === 1 ? 'X' : 'O';
 
     const [currentPlayer, setCurrentPlayer] = useState<'X' | 'O'>(activePlayer);
     const [squares, setSquares] = useState(Array(9).fill(null));
