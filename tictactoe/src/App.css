@@ -15,3 +15,11 @@
   width: 100%;
   font-size: 80px;
 }
+
+.square_O {
+  background-color: green;
+}
+
+.square_X {
+  background-color: red;
+}

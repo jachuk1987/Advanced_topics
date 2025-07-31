@@ -7,17 +7,25 @@ interface ISquareProps {
 
 const Square: React.FC<ISquareProps> = ({ onClick, value }) => {
 
-    if(!value) {
+    if (!value) {
         return (
+            <button
+                className="board-square"
+                onClick={onClick}
+            >
+                {value}
+            </button>
+        )
+    }
+
+    return (
         <button
-            className="board-square"
-            onClick={onClick}
+            className={`board-square square_${value}`}
+            disabled
         >
             {value}
         </button>
     )
-    }
-    
 }
 
 export default Square;
