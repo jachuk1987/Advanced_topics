@@ -28,6 +28,7 @@ const Board: React.FC = () => {
                         <Grid.Column className='board-columns'>
                             <Square
                                 onClick={() => setSquareValue(index)}
+                                value={squares[index]}
                             />
                         </Grid.Column>
                     ))
