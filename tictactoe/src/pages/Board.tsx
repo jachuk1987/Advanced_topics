@@ -17,6 +17,7 @@ const Board: React.FC = () => {
             return value;
         })
         setSquares(data);
+        setCurrentPlayer
     }
 
     return (
