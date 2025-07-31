@@ -10,7 +10,7 @@ const Square: React.FC<ISquareProps> = ({ onClick }) => {
             className="board-square"
             onClick={onClick}
         >
-            X
+            
         </button>
     )
 }
