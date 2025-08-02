@@ -17,6 +17,8 @@ app.get("/", (req, res) => {
     res.send("Api is Working");
 });
 
+mongoose.set('strictQuery')
+
 // middleware
 app.use(express.json());
 app.use(cookieParser());
