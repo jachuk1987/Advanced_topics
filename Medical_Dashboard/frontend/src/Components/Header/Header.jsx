@@ -29,7 +29,7 @@ const Header = () => {
 
   const handleStickyHeader = () => {
     window.addEventListener('scroll', () => {
-      if(document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
         headerRef.current.classList.add('sticky__header')
       } else {
         headerRef.current.classList.remove('sticky__header')
@@ -37,7 +37,7 @@ const Header = () => {
     })
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     handleStickyHeader()
 
     return () => window.removeEventListener('scroll', handleStickyHeader)
@@ -84,9 +84,9 @@ const Header = () => {
             <button className='bg-primaryColor py-2 px-6 text-white font-[600] h-[44px]flex items-center justify-center rounded-[50px]'>Login</button>
           </Link>
 
-            <span className='md:hidden' onClick={toggleMenu}>
-              <BiMenu className='w-6 h-6 cursor-pointer'/>
-            </span>
+          <span className='md:hidden' onClick={toggleMenu}>
+            <BiMenu className='w-6 h-6 cursor-pointer' />
+          </span>
         </div>
       </div>
     </div>
