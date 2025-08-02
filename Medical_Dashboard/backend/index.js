@@ -17,7 +17,19 @@ app.get("/", (req, res) => {
     res.send("Api is Working");
 });
 
-mongoose.set('strictQuery')
+mongoose.set('strictQuery', false)
+const connectDB = async()=>{
+    try {
+        await mongoose.connect(process.env.MONGO_URL, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        })
+
+        console.log('MongoDB database is connected')
+    } catch (err) {
+        
+    }
+}
 
 // middleware
 app.use(express.json());
