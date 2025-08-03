@@ -37,6 +37,6 @@ app.use(cookieParser());
 app.use(cors(corsOptions));
 
 app.listen(port, () => {
-    // connectDB();
+    connectDB();
     console.log(`Server is running on port ${port}`);
 });
