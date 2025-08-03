@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 });
 
 mongoose.set('strictQuery', false)
-const connectDB = async()=>{
+const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URL, {
             useNewUrlParser: true,
@@ -38,5 +38,5 @@ app.use(cors(corsOptions));
 
 app.listen(port, () => {
     // connectDB();
-    console.log("Server is running on port" + port);
+    console.log(`Server is running on port ${port}`);
 });
