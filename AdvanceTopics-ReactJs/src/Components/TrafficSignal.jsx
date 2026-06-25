@@ -51,4 +51,3 @@ const TrafficSignal = () => {
 };
 
 export default TrafficSignal;
- 
