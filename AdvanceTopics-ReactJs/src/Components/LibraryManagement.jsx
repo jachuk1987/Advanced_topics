@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-
-
 const createBook = ({ id, title, author, status }) => {
   if (status !== "Available" && status !== "Lent Out") {
     throw new Error("Invalid book status!");
