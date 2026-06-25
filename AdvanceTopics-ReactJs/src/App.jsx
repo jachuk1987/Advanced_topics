@@ -5,7 +5,7 @@ import DigitalAddressBook from './Components/DigitalAddressBoook';
 function App() {
   return (
     <div className="App">
-     <DigitalAddressBook/>
+      <DigitalAddressBook />
     </div>
   );
 }
