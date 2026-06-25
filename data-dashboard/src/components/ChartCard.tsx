@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardContent, Typography } from "@mui/material";
-
+ 
 interface ChartCardProps {
   title: string;
   children: React.ReactNode;
